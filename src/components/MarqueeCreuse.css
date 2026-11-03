@@ -1,0 +1,24 @@
+/* texte qui défile dans la bande noire */
+.mc {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.mc__piste {
+  position: relative;
+  display: inline-flex;
+  will-change: transform;
+}
+
+.mc__mot {
+  display: inline-flex;
+  padding-right: 0.28em;
+}
+
+.mc__mot--accent { color: var(--red); }
+
+.mc__lettre {
+  display: inline-block;
+  transform-origin: 50% 50%;
+  will-change: transform;
+}

@@ -1,0 +1,78 @@
+/* bande noire avec mon portrait et le papier déchiré */
+.bp {
+  --h: clamp(420px, 44vw, 660px);
+  position: relative;
+  height: var(--h);
+  margin: 2rem 0;
+  background: var(--ink);
+  clip-path: inset(-100vh 0 0 0);
+}
+
+.bp__texte {
+  position: absolute;
+  top: 46%;
+  left: 0;
+  right: 0;
+  translate: 0 -50%;
+  z-index: 0;
+  font-size: calc(var(--h) * 0.4);
+  line-height: 1;
+  color: #fff;
+}
+
+.bp__papier {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 36%;
+  pointer-events: none;
+}
+.bp__papier--haut {
+  top: -1px;
+  z-index: 1;
+  /* pas d'ombre ici sinon une ligne apparaît */
+}
+.bp__papier--bas {
+  bottom: -1px;
+  z-index: 3;
+  filter: drop-shadow(0 -4px 5px rgba(0, 0, 0, 0.45));
+}
+
+.bp__feuille {
+  position: absolute;
+  inset: 0;
+  background-color: var(--paper);
+  background-image: var(--paper-image);
+  background-size: var(--paper-size);
+}
+
+.bp__rebord {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bp__portrait {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: calc(var(--h) * -0.13);
+  width: calc(var(--h) * 0.9);
+  translate: -50% 0;
+}
+/* contour rouge autour du détourage */
+.bp__portrait img {
+  display: block;
+  width: 100%;
+  filter:
+    drop-shadow(4px 0 0 var(--red)) drop-shadow(-4px 0 0 var(--red))
+    drop-shadow(0 4px 0 var(--red)) drop-shadow(0 -4px 0 var(--red))
+    drop-shadow(4px 0 0 var(--red)) drop-shadow(-4px 0 0 var(--red))
+    drop-shadow(0 4px 0 var(--red)) drop-shadow(0 -4px 0 var(--red));
+}
+
+@media (max-width: 700px) {
+  .bp { --h: clamp(300px, 82vw, 420px); }
+  .bp__portrait { width: calc(var(--h) * 0.78); top: calc(var(--h) * -0.08); }
+}

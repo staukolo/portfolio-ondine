@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "poste": "Alternante développeuse",
+    "entreprise": "DAVAR — Cellule Qualité LNC",
+    "lieu": "Païta, Nouvelle-Calédonie",
+    "date_debut": "2026-05-15",
+    "date_fin": "2027-04-15",
+    "description": "Migration logicielle du gestionnaire qualité (QI) de Lotus Notes vers la version web Avanteam. Transcription et documentation des fichiers de configuration, couvrant les modules de gestion documentaire et de gestion des contrats."
+  },
+  {
+    "id": 2,
+    "poste": "Stagiaire en développement web et communication digitale",
+    "entreprise": "Nakupa Conseil — Agence de communication",
+    "lieu": "Nouvelle-Calédonie",
+    "date_debut": "2025-09-22",
+    "date_fin": "2025-11-28",
+    "description": "Refonte et intégration de sites web (structure, responsive design, optimisation UX). Production de contenus multimédias (vidéos, posts, supports web) pour la communication des clients."
+  },
+  {
+    "id": 3,
+    "poste": "Stagiaire en communication",
+    "entreprise": "Pôle Communication, Gouvernement de la Nouvelle-Calédonie",
+    "lieu": "Nouvelle-Calédonie",
+    "date_debut": "2024-11-25",
+    "date_fin": "2024-12-27",
+    "description": "Photo shoot pour des reportages. Rédaction et gestion des publications sur les réseaux sociaux."
+  }
+]

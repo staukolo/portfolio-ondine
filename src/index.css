@@ -1,0 +1,137 @@
+/* styles globaux : couleurs, polices, fond quadrillé, boutons */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --font: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-accent: 'Fraunces', Georgia, serif;
+
+  --paper: #ecebe7;
+  --paper-light: #f6f5f2;
+  --ink: #111111;
+  --ink-soft: #555555;
+  --red: #e3241b;
+  --line: rgba(0, 0, 0, 0.07);
+  /* fond papier quadrillé (aussi utilisé dans les bandes de papier) */
+  --paper-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.012' numOctaves='3' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --paper-size: 24px 24px, 24px 24px, 600px 600px;
+
+  color-scheme: light;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  color: var(--ink);
+  font-family: var(--font);
+  line-height: 1.5;
+  background-color: var(--paper);
+  background-image: var(--paper-image);
+  background-size: var(--paper-size);
+}
+
+h1, h2, h3 {
+  font-family: var(--font);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h1 em, h2 em, h3 em, .accent {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  color: var(--red);
+}
+
+button, input, textarea, select {
+  font: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.display {
+  font-family: var(--font);
+  font-weight: 800;
+  font-stretch: 75%;
+  text-transform: uppercase;
+  line-height: 0.85;
+  letter-spacing: -0.01em;
+}
+
+.kicker,
+.section-label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.hand {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.btn-primary, .btn-outline {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.8rem 1.4rem; border-radius: 999px; text-decoration: none;
+  font-weight: 700; font-size: 0.9rem; letter-spacing: 0.04em; text-transform: uppercase;
+  transition: background 0.2s ease, color 0.2s ease, translate 0.2s ease;
+}
+.btn-primary { background: var(--ink); color: #fff; border: 2px solid var(--ink); }
+.btn-primary:hover { background: var(--red); border-color: var(--red); translate: 0 -2px; }
+.btn-outline { border: 2px solid var(--ink); color: var(--ink); background: transparent; }
+.btn-outline:hover { background: var(--ink); color: #fff; translate: 0 -2px; }
+
+.social-btn {
+  width: 42px; height: 42px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid currentColor; color: inherit; transition: background 0.2s ease, color 0.2s ease;
+}
+.social-btn:hover { background: var(--red); border-color: var(--red); color: #fff; }
+
+.sticker,
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.95rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--ink);
+  background: transparent;
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+.sticker--small, .tag { padding: 0.2rem 0.65rem; font-size: 0.72rem; }
+.sticker--ink { background: var(--ink); color: #fff; }
+.sticker--red { background: var(--red); border-color: var(--red); color: #fff; }
+
+button.sticker { cursor: pointer; transition: background 0.2s ease, color 0.2s ease; }
+button.sticker:hover { background: var(--ink); color: #fff; }
+button.sticker.active { background: var(--red); border-color: var(--red); color: #fff; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

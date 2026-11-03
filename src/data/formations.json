@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "intitule": "BUT Métiers du Multimédia et de l'Internet — parcours Développement Web",
+    "etablissement": "Université de la Nouvelle-Calédonie",
+    "date_debut": "2024-01-01",
+    "date_fin": "2026-12-31",
+    "description": "Développement web, UX Design, audiovisuel, stratégie de communication & marketing."
+  },
+  {
+    "id": 2,
+    "intitule": "Baccalauréat général — spécialités Mathématiques, Numérique et Sciences de l'Informatique",
+    "etablissement": "Lycée Michel Rocard, Pouembout",
+    "date_debut": "2021-01-01",
+    "date_fin": "2023-06-30",
+    "description": ""
+  }
+]

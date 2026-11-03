@@ -1,0 +1,14 @@
+[
+  { "id": 1, "nom": "Angular", "categorie": "frontend", "niveau": "avance", "mis_en_avant": true },
+  { "id": 2, "nom": "React", "categorie": "frontend", "niveau": "avance", "mis_en_avant": true },
+  { "id": 3, "nom": "Vue.js", "categorie": "frontend", "niveau": "intermediaire", "mis_en_avant": true },
+  { "id": 4, "nom": "Ionic", "categorie": "frontend", "niveau": "intermediaire", "mis_en_avant": false },
+  { "id": 5, "nom": "PHP MVC", "categorie": "backend", "niveau": "avance", "mis_en_avant": true },
+  { "id": 6, "nom": "Java Spring Boot", "categorie": "backend", "niveau": "intermediaire", "mis_en_avant": false },
+  { "id": 7, "nom": "Symfony", "categorie": "backend", "niveau": "intermediaire", "mis_en_avant": false },
+  { "id": 8, "nom": "MySQL", "categorie": "bdd", "niveau": "avance", "mis_en_avant": true },
+  { "id": 9, "nom": "Supabase", "categorie": "bdd", "niveau": "intermediaire", "mis_en_avant": false },
+  { "id": 10, "nom": "Three.js / React Three Fiber", "categorie": "outil", "niveau": "intermediaire", "mis_en_avant": true },
+  { "id": 11, "nom": "Unity", "categorie": "outil", "niveau": "intermediaire", "mis_en_avant": false },
+  { "id": 12, "nom": "Docker", "categorie": "outil", "niveau": "debutant", "mis_en_avant": false }
+]

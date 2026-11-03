@@ -1,0 +1,158 @@
+/* styles de la page Projets */
+.projets-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2.5rem 2rem;
+}
+
+.projets-compteur {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: clamp(4rem, 9vw, 7rem);
+  color: var(--red);
+}
+.projets-compteur small {
+  font-size: 0.8rem;
+  font-stretch: 100%;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+/* j'utilise rotate et translate au lieu de transform pour pas gêner GSAP */
+.projets-mur {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+  gap: 3.5rem 2.5rem;
+  padding: 1rem 0.5rem 2rem;
+}
+
+.polaroid {
+  position: relative;
+  background: #fff;
+  padding: 14px 14px 1.3rem;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.13);
+  rotate: -1.5deg;
+  transition: rotate 0.3s ease, translate 0.3s ease, box-shadow 0.3s ease;
+}
+.polaroid:nth-child(3n + 2) { rotate: 1.2deg; translate: 0 1.5rem; }
+.polaroid:nth-child(3n) { rotate: -0.6deg; }
+
+.polaroid:hover {
+  rotate: 0deg;
+  translate: 0 -6px;
+  box-shadow: 0 24px 44px rgba(0, 0, 0, 0.18);
+}
+
+.polaroid__photo {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--ink);
+  text-decoration: none;
+}
+.polaroid__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: scale 0.4s ease;
+}
+.polaroid:hover .polaroid__photo img { scale: 1.04; }
+
+/* voile noir sur l'image, qui passe au rouge au survol */
+.polaroid__titre {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1.2rem;
+  background: rgba(17, 17, 17, 0.55);
+  color: #fff;
+  font-size: 2.8rem;
+  text-align: center;
+  transition: background 0.3s ease;
+}
+.polaroid:hover .polaroid__titre { background: rgba(227, 36, 27, 0.85); }
+
+.polaroid__stamp {
+  position: absolute;
+  right: 10px;
+  bottom: 12px;
+  rotate: -6deg;
+  padding: 0.2rem 0.55rem;
+  border: 2px solid var(--red);
+  background: #fff;
+  color: var(--red);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.polaroid__body { padding: 1.1rem 0.3rem 0; }
+
+.polaroid__numero {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: var(--red);
+}
+
+.polaroid h3 {
+  margin: 0.2rem 0 0.4rem;
+  font-size: 1.35rem;
+}
+.polaroid h3 a { color: var(--ink); text-decoration: none; }
+.polaroid h3 a:hover { color: var(--red); }
+
+.polaroid p {
+  margin: 0 0 1rem;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.polaroid__body .polaroid__fiche {
+  margin: -0.2rem 0 0.9rem;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.polaroid__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.polaroid__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 0.9rem;
+  border-top: 1.5px solid var(--ink);
+}
+
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.link-btn:hover { color: var(--red); }
+
+@media (max-width: 768px) {
+  .projets-page { padding: 0 1.25rem 2rem; }
+  .projets-mur { gap: 3rem; }
+  .polaroid:nth-child(3n + 2) { translate: none; }
+}

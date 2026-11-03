@@ -1,0 +1,170 @@
+/* styles de la page Compétences */
+.competences-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2.5rem 2rem;
+}
+
+.competence {
+  display: grid;
+  grid-template-columns: 0.8fr 2fr;
+  gap: 3rem;
+  margin-bottom: 4.5rem;
+}
+
+.competence__entete {
+  align-self: start;
+  position: sticky;
+  top: 6rem;
+}
+.competence__nom {
+  margin: 0 0 1rem;
+  padding-left: 0.9rem;
+  border-left: 0.35em solid var(--c);
+  font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+}
+.competence__intitule {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.competence__intitule span {
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.ac-liste {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 3px solid var(--ink);
+}
+
+.ac {
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  gap: 0.6rem 1.2rem;
+  align-items: baseline;
+  padding: 1.1rem 0;
+  border-bottom: 1.5px solid var(--ink);
+  scroll-margin-top: 6rem;
+}
+/* AC surligné quand on arrive depuis un lien #AC */
+.ac:target {
+  background: linear-gradient(90deg, rgba(227, 36, 27, 0.1), transparent 70%);
+}
+
+.ac__code {
+  font-weight: 800;
+  font-stretch: 75%;
+  font-size: 1.35rem;
+}
+.ac__libelle {
+  line-height: 1.45;
+}
+
+.ac__preuves {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.ac__preuves .sticker {
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.ac__preuves .sticker:hover {
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff;
+}
+
+.ac--vide .ac__code,
+.ac--vide .ac__libelle {
+  color: var(--ink-soft);
+}
+.ac__a-venir {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+}
+
+.journal {
+  margin-top: 6rem;
+}
+.journal__titre {
+  margin: 0 0 2rem;
+  font-size: clamp(3rem, 8vw, 6rem);
+}
+
+.journal__liste {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 3px solid var(--ink);
+}
+
+.journal__entree {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.3rem 0.5rem;
+  border-bottom: 1.5px solid var(--ink);
+  color: var(--ink);
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.journal__entree:hover {
+  background: var(--ink);
+  color: #fff;
+}
+
+.journal__projet {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+}
+.journal__ac {
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--red);
+}
+.journal__lire {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .competence {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .competence__entete { position: static; }
+}
+
+@media (max-width: 700px) {
+  .competences-page { padding: 0 1.25rem 2rem; }
+  .competences-compteur { align-items: flex-start; }
+
+  .ac {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+  .ac__preuves { grid-column: 1; }
+
+  .journal__entree {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+}

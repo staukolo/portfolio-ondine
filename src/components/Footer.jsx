@@ -1,4 +1,5 @@
 // footer avec mes contacts, présent sur toutes les pages
+import { Link } from 'react-router-dom';
 import { Mail, Phone, FileDown } from 'lucide-react';
 import SocialLinks from './SocialLinks';
 import TornEdge from './TornEdge';
@@ -36,7 +37,9 @@ function Footer() {
 
         <div className="footer__bas">
           <span>© {new Date().getFullYear()} {profil.nom} Taukolo</span>
-          <span>Nouvelle-Calédonie ✸</span>
+          <span className="footer__legal">
+            <Link to="/mentions-legales">Mentions légales</Link>
+          </span>
         </div>
       </div>
     </footer>

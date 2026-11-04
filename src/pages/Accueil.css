@@ -165,6 +165,35 @@
 .hello__titre {
   margin: 0 0 1.2rem;
   font-size: clamp(3.8rem, 8vw, 6.5rem);
+  white-space: nowrap;
+}
+.salut {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+/* chaque lettre tombe d'en haut en tournant un peu, puis repart vers le bas */
+.salut__lettre {
+  display: inline-block;
+  animation: lettre-entree 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation-delay: calc(var(--i) * 55ms);
+}
+.salut--sortie .salut__lettre {
+  animation: lettre-sortie 0.35s ease-in both;
+  animation-delay: calc(var(--i) * 30ms);
+}
+.salut__lettre:nth-child(even) { --tourne: 8deg; }
+
+@keyframes lettre-entree {
+  from { translate: 0 -110%; rotate: var(--tourne, -8deg); }
+}
+@keyframes lettre-sortie {
+  to { translate: 0 110%; rotate: var(--tourne, -8deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .salut__lettre,
+  .salut--sortie .salut__lettre { animation: none; }
 }
 
 .hello__texte p {

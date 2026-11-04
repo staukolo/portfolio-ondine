@@ -8,6 +8,7 @@ import Projets from './pages/Projets';
 import ProjetDetail from './pages/ProjetDetail';
 import Parcours from './pages/Parcours';
 import Competences from './pages/Competences';
+import MentionsLegales from './pages/MentionsLegales';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/projets/:slug" element={<ProjetDetail />} />
         <Route path="/competences" element={<Competences />} />
         <Route path="/parcours" element={<Parcours />} />
+        <Route path="/mentions-legales" element={<MentionsLegales />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

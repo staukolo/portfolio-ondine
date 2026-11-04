@@ -5,15 +5,22 @@
     "slug": "forcats-nou",
     "description_courte": "Application mobile de visite guidée du bagne de l'Île Nou, pour l'association ATUP",
     "description_longue": "Application web installable (PWA) de visite guidée de l'ancien bagne de l'Île Nou, réalisée pour l'association Témoignage d'un passé (ATUP). Le visiteur débloque les points du parcours grâce au GPS, découvre l'histoire de chaque lieu (récits, témoignages, photos d'archives, quiz) et gagne des badges en réussissant des mini-jeux. L'interface est bilingue FR/EN.",
-    "technologies": ["Ionic", "Angular", "Supabase", "Leaflet", "Phaser", "PWA"],
+    "technologies": ["Ionic", "Angular", "Supabase", "Leaflet", "JavaScript", "PWA"],
     "image": "/images/projets/forcats-nou.jpg",
     "image_mobile": "/images/projets/forcats-nou-mobile.jpg",
     "lien_github": "https://github.com/louanne-star/kaval",
     "lien_demo": "https://forcats-nou.netlify.app",
-    "periode": "Avril — novembre 2026",
-    "date_realisation": "2026-11-01",
+    "periode": "Février — octobre 2026",
+    "date_realisation": "2026-10-31",
     "contexte": "academique",
     "mis_en_avant": true,
+    "recap": {
+      "cadre": "Association ATUP, projet BUT MMI 3",
+      "equipe": "5 personnes : 2 dev, 3 com et design",
+      "role": "Dev full-stack et UX/UI",
+      "outils": "Ionic, Angular, Supabase, JavaScript, Git, Netlify",
+      "statut": "En ligne"
+    },
     "fiche": {
       "ac": ["AC34.01", "AC34.03", "AC34.05", "AC35.02"],
       "intro": "Forçat's Nou est une vraie commande : l'association ATUP voulait une application pour faire visiter le bagne de l'Île Nou. On l'a réalisée à cinq : deux en développement et trois en communication et UX/UI design.",
@@ -24,7 +31,7 @@
         },
         {
           "ac": "AC34.03",
-          "texte": "Pour rendre la visite plus vivante, chaque zone peut proposer un mini-jeu qui rapporte un badge. J'ai codé ces mini-jeux avec Lou-Anne en Phaser (Mémoire, Tribunal du bagne, Les mots du bagne, Évasion). Chaque jeu tourne dans une iframe et envoie son résultat à l'application avec postMessage, ce qui débloque le badge : les jeux restent indépendants, on peut en ajouter ou en remplacer un sans toucher au reste."
+          "texte": "Pour rendre la visite plus vivante, chaque zone peut proposer un mini-jeu qui rapporte un badge. J'ai codé ces mini-jeux avec Lou-Anne en HTML, CSS et JavaScript (Mémoire, Tribunal du bagne, Les mots du bagne, Évasion). Chaque jeu tourne dans une iframe et envoie son résultat à l'application avec postMessage, ce qui débloque le badge : les jeux restent indépendants, on peut en ajouter ou en remplacer un sans toucher au reste."
         },
         {
           "ac": "AC34.05",
@@ -55,8 +62,16 @@
     "date_realisation": "2026-10-02",
     "contexte": "academique",
     "mis_en_avant": true,
+    "recap": {
+      "cadre": "Festival Kaledoscope de l'UNC, BUT MMI 3",
+      "equipe": "Binôme avec Lou-Anne Grosjean",
+      "role": "Conception et dev en réalité augmentée",
+      "outils": "MindAR, Three.js, JavaScript, Leaflet, Netlify",
+      "statut": "Prototype en ligne"
+    },
     "fiche": {
       "ac": ["AC34.03", "AC35.04"],
+      "preuves": [{ "label": "Dossier de conception", "url": "/docs/dossier-conception-empreintes.pdf" }],
       "intro": "Le sujet était de prolonger le parcours de fresques du campus par un dispositif numérique, sans jamais modifier l'œuvre de l'artiste. Avec Lou-Anne, on a imaginé « Empreintes » : chaque fresque cache une Empreinte, une capsule qui reprend la molécule déjà peinte dans l'œuvre (kératine pour la tortue, cyanidine pour l'hibiscus, mélanine et caroténoïdes pour le loriquet).",
       "analyses": [
         {
@@ -86,6 +101,13 @@
     "date_realisation": "2026-07-03",
     "contexte": "academique",
     "mis_en_avant": false,
+    "recap": {
+      "cadre": "Concours NC La 1ère, BUT MMI 3",
+      "equipe": "Binôme avec Lou-Anne Grosjean",
+      "role": "Caméra et montage",
+      "outils": "DaVinci Resolve",
+      "statut": "Diffusé sur YouTube"
+    },
     "fiche": {
       "ac": ["AC35.01", "AC35.02", "AC35.04"],
       "intro": "Pour le concours de NC La 1ère, on devait faire le portrait d'un acteur local qui fait avancer la Nouvelle-Calédonie.",
@@ -122,6 +144,13 @@
     "date_realisation": "2026-10-23",
     "contexte": "academique",
     "mis_en_avant": true,
+    "recap": {
+      "cadre": "Projet de cours, BUT MMI 3",
+      "equipe": "Seule",
+      "role": "Dev front et 3D",
+      "outils": "React, React Three Fiber, Drei, API TheCocktailDB, Netlify",
+      "statut": "En ligne"
+    },
     "fiche": {
       "ac": ["AC34.01", "AC34.03", "AC35.02"],
       "intro": "Le sujet était d'explorer des données en 3D avec React. J'ai choisi l'API TheCocktailDB et le thème des mocktails : chaque boisson devient un verre en 3D posé sur un comptoir.",
@@ -158,6 +187,13 @@
     "date_realisation": "2026-08-28",
     "contexte": "academique",
     "mis_en_avant": false,
+    "recap": {
+      "cadre": "TP, BUT MMI 3",
+      "equipe": "Seule",
+      "role": "Dev 3D",
+      "outils": "React, React Three Fiber, Drei, Rapier, Leva, Netlify",
+      "statut": "En ligne"
+    },
     "fiche": {
       "ac": ["AC34.01", "AC34.03"],
       "intro": "Un TP pour aller plus loin en 3D avec React : physique, animations et effets visuels.",
@@ -190,6 +226,13 @@
     "date_realisation": "2026-06-26",
     "contexte": "academique",
     "mis_en_avant": false,
+    "recap": {
+      "cadre": "Exercice de cours, BUT MMI 3",
+      "equipe": "Seule",
+      "role": "Dev front et 3D",
+      "outils": "React, React Three Fiber, Three.js, Netlify",
+      "statut": "En ligne"
+    },
     "fiche": {
       "ac": ["AC34.01", "AC34.03"],
       "intro": "C'était ma première prise en main de React Three Fiber, en exercice court.",
@@ -221,6 +264,13 @@
     "date_realisation": "2026-04-22",
     "contexte": "academique",
     "mis_en_avant": false,
+    "recap": {
+      "cadre": "Cours de Symfony, BUT MMI 3",
+      "equipe": "Seule",
+      "role": "Dev back-end",
+      "outils": "Symfony, PHP, Doctrine, Twig, Git",
+      "statut": "Code sur GitHub"
+    },
     "fiche": {
       "ac": ["AC34.02", "AC34.04"],
       "intro": "Ce projet a été réalisé en cours de Symfony, exercice après exercice.",
@@ -252,6 +302,13 @@
     "date_realisation": "2026-04-15",
     "contexte": "academique",
     "mis_en_avant": false,
+    "recap": {
+      "cadre": "Ressource R507, BUT MMI 3",
+      "equipe": "Seule",
+      "role": "Dev full-stack (jeu et serveur)",
+      "outils": "Phaser 3, Node.js, Socket.IO",
+      "statut": "Terminé, code pas encore publié"
+    },
     "fiche": {
       "ac": ["AC34.01", "AC34.02", "AC34.03"],
       "intro": "Pour ce projet de la ressource R507, on devait créer un jeu en Phaser.js.",
@@ -288,6 +345,13 @@
     "date_realisation": "2026-11-03",
     "contexte": "academique",
     "mis_en_avant": false,
+    "recap": {
+      "cadre": "Projet BUT MMI 3",
+      "equipe": "Seule",
+      "role": "Design et dev front",
+      "outils": "React, Vite, GSAP, React Router, Netlify",
+      "statut": "En ligne"
+    },
     "fiche": {
       "ac": ["AC34.01", "AC34.04", "AC34.05"],
       "intro": "Le portfolio doit à la fois montrer mes meilleurs travaux (volet vitrine) et prouver mes apprentissages critiques (volet compétences).",

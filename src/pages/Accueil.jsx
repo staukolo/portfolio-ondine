@@ -20,6 +20,36 @@ const TYPING_SPEED = 90;
 const ERASING_SPEED = 45;
 const PAUSE_DURATION = 1500;
 
+// "bonjour" dans plusieurs langues, les lettres tombent une par une
+const SALUTS = ['Malo', 'Bonjour', 'Hello'];
+
+function Salut() {
+  const [index, setIndex] = useState(0);
+  const [sortie, setSortie] = useState(false);
+
+  useEffect(() => {
+    let attente;
+    const minuteur = setTimeout(() => {
+      setSortie(true);
+      attente = setTimeout(() => {
+        setIndex((i) => (i + 1) % SALUTS.length);
+        setSortie(false);
+      }, 500);
+    }, 2600);
+    return () => { clearTimeout(minuteur); clearTimeout(attente); };
+  }, [index]);
+
+  return (
+    <h2 className="display hello__titre" aria-label={SALUTS.join(', ')}>
+      <span key={index} className={`salut ${sortie ? 'salut--sortie' : ''}`} aria-hidden="true">
+        {SALUTS[index].split('').map((lettre, i) => (
+          <span key={i} className="salut__lettre" style={{ '--i': i }}>{lettre}</span>
+        ))}
+      </span>
+    </h2>
+  );
+}
+
 const BANDE_SEGMENTS = [
   { texte: 'Développeuse web' },
   { texte: '✸', accent: true },
@@ -190,7 +220,7 @@ function Accueil() {
         </figure>
 
         <div className="hello__texte">
-          <h2 className="display hello__titre">Malo</h2>
+          <Salut />
           <p className="hello__intro">
             Moi c’est Ondine ! Je suis étudiante en développement web, passionnée par le
             front-end, le design d’interface et l’image.
@@ -211,7 +241,7 @@ function Accueil() {
 
           {formation && (
             <>
-              <h3 className="display hello__sous-titre">Éducation</h3>
+              <h3 className="display hello__sous-titre">Formation</h3>
               <p className="hello__ligne">
                 <strong>{formation.intitule}</strong><br />
                 {formation.etablissement} · {new Date(formation.date_debut).getFullYear()} — {formation.date_fin ? new Date(formation.date_fin).getFullYear() : 'Aujourd’hui'}

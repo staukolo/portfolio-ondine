@@ -1,0 +1,68 @@
+[
+  {
+    "categorie": "Front",
+    "outils": [
+      { "nom": "HTML", "logo": "/logos/html5.svg" },
+      { "nom": "CSS", "logo": "/logos/css3.svg" },
+      { "nom": "JavaScript", "logo": "/logos/javascript.svg" },
+      { "nom": "React", "logo": "/logos/react.svg" },
+      { "nom": "Vue.js", "logo": "/logos/vuejs.svg" },
+      { "nom": "Angular", "logo": "/logos/angular.svg" },
+      { "nom": "Ionic", "logo": "/logos/ionic.svg" },
+      { "nom": "GSAP", "logo": "/logos/gsap.svg" }
+    ]
+  },
+  {
+    "categorie": "Back",
+    "outils": [
+      { "nom": "PHP", "logo": "/logos/php.svg" },
+      { "nom": "Symfony", "logo": "/logos/symfony.svg", "sombre": true },
+      { "nom": "Spring Boot", "logo": "/logos/spring.svg" },
+      { "nom": "Node.js", "logo": "/logos/nodejs.svg" },
+      { "nom": "Docker", "logo": "/logos/docker.svg" }
+    ]
+  },
+  {
+    "categorie": "Bases de données",
+    "outils": [
+      { "nom": "MySQL", "logo": "/logos/mysql.svg" },
+      { "nom": "PostgreSQL", "logo": "/logos/postgresql.svg" },
+      { "nom": "Supabase", "logo": "/logos/supabase.svg" }
+    ]
+  },
+  {
+    "categorie": "3D & jeu",
+    "outils": [
+      { "nom": "Blender", "logo": "/logos/blender.svg" },
+      { "nom": "Three.js", "logo": "/logos/threejs.svg", "sombre": true },
+      { "nom": "React Three Fiber", "logo": "/logos/r3f.svg" },
+      { "nom": "Phaser", "logo": "/logos/phaser.png", "large": true },
+      { "nom": "Unity", "logo": "/logos/unity.svg", "sombre": true }
+    ]
+  },
+  {
+    "categorie": "Design",
+    "outils": [
+      { "nom": "Figma", "logo": "/logos/figma.svg" },
+      { "nom": "Photoshop", "logo": "/logos/photoshop.svg" },
+      { "nom": "Illustrator", "logo": "/logos/illustrator.svg" },
+      { "nom": "Canva", "logo": "/logos/canva.svg" }
+    ]
+  },
+  {
+    "categorie": "Vidéo & motion",
+    "outils": [
+      { "nom": "Premiere Pro", "logo": "/logos/premierepro.svg" },
+      { "nom": "After Effects", "logo": "/logos/aftereffects.svg" },
+      { "nom": "DaVinci Resolve", "logo": "/logos/davinci.svg", "sombre": true }
+    ]
+  },
+  {
+    "categorie": "Outils",
+    "outils": [
+      { "nom": "Git", "logo": "/logos/git.svg" },
+      { "nom": "VS Code", "logo": "/logos/vscode.svg" },
+      { "nom": "WordPress", "logo": "/logos/wordpress.svg", "sombre": true }
+    ]
+  }
+]

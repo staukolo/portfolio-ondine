@@ -1,6 +1,6 @@
 // page d'un projet : présentation, technos, liens et partie compétences
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, ExternalLink, Calendar } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUp, ExternalLink, Calendar } from 'lucide-react';
 import { Github } from '../components/BrandIcons';
 import FicheReflexive from '../components/FicheReflexive';
 import projetsData from '../data/projets.json';
@@ -20,6 +20,12 @@ function ProjetDetail() {
 
   // pour les applis mobiles on met la capture verticale à gauche
   const formatMobile = Boolean(projet.image_mobile);
+  const recap = projet.recap;
+
+  // projet d'avant et d'après, on boucle au bout de la liste
+  const index = projetsData.indexOf(projet);
+  const precedent = projetsData[(index - 1 + projetsData.length) % projetsData.length];
+  const suivant = projetsData[(index + 1) % projetsData.length];
 
   const presentation = (
     <div className="projet-detail__body">
@@ -64,12 +70,30 @@ function ProjetDetail() {
         <span className="projet-detail__contexte">{projet.contexte === 'academique' ? 'Académique' : 'Personnel'}</span>
         <h1>{projet.titre}</h1>
         <p className="projet-detail__intro">{projet.description_courte}</p>
-        {date && (
+        {date && !recap && (
           <span className="projet-detail__date">
             <Calendar size={16} /> {date}
           </span>
         )}
       </header>
+
+      {recap && (
+        <dl className="recap">
+          {[
+            ['Cadre', recap.cadre],
+            ['Durée', date],
+            ['Équipe', recap.equipe],
+            ['Mon rôle', recap.role],
+            ['Outils', recap.outils],
+            ['Statut', recap.statut],
+          ].filter(([, valeur]) => valeur).map(([label, valeur]) => (
+            <div key={label} className="recap__ligne">
+              <dt>{label}</dt>
+              <dd>{valeur}</dd>
+            </div>
+          ))}
+        </dl>
+      )}
 
       {formatMobile ? (
         <div className="projet-detail__mobile">
@@ -88,6 +112,27 @@ function ProjetDetail() {
       )}
 
       <FicheReflexive projet={projet} />
+
+      <nav className="projet-nav" aria-label="Autres projets">
+        <Link to={`/projets/${precedent.slug}`} className="projet-nav__lien">
+          <span className="projet-nav__sens"><ArrowLeft size={16} /> Projet précédent</span>
+          <span className="projet-nav__titre display">{precedent.titre}</span>
+        </Link>
+
+        <button
+          type="button"
+          className="projet-nav__haut"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          aria-label="Remonter en haut de la page"
+        >
+          <ArrowUp size={22} />
+        </button>
+
+        <Link to={`/projets/${suivant.slug}`} className="projet-nav__lien projet-nav__lien--suivant">
+          <span className="projet-nav__sens">Projet suivant <ArrowRight size={16} /></span>
+          <span className="projet-nav__titre display">{suivant.titre}</span>
+        </Link>
+      </nav>
     </article>
   );
 }

@@ -96,6 +96,160 @@
   color: var(--ink-soft);
 }
 
+/* la bande noire prend toute la largeur de l'écran */
+.outils {
+  margin: 6rem calc(50% - 50vw) 0;
+}
+.outils__fond {
+  --pad: max(2.5rem, calc(50vw - 600px + 2.5rem));
+  background: var(--ink);
+  color: #fff;
+  padding: 2.5rem var(--pad) 4rem;
+}
+.outils__titre {
+  margin: 0 0 2rem;
+  font-size: clamp(3rem, 8vw, 6rem);
+  color: #fff;
+}
+
+.outils__onglets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 3rem;
+}
+.outils__onglet {
+  padding: 0.4rem 1rem;
+  border: 1.5px solid #fff;
+  border-radius: 999px;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.outils__onglet:hover {
+  background: #fff;
+  color: var(--ink);
+}
+.outils__onglet.is-actif {
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff;
+}
+
+.outils__scene {
+  height: 230px;
+  display: grid;
+  align-items: center;
+}
+
+.outils__groupe {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.outils__groupe .outil {
+  animation: apparition 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation-delay: calc(var(--i) * 70ms);
+}
+
+/* deux lignes de logos qui défilent en sens inverse */
+.outils__defile {
+  display: grid;
+  gap: 2rem;
+  margin: 0 calc(-1 * var(--pad));
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  animation: fondu 0.5s ease both;
+}
+.outils__piste {
+  display: flex;
+  width: max-content;
+  animation: defile 45s linear infinite;
+}
+.outils__piste--inverse {
+  animation-direction: reverse;
+}
+.outils__defile:hover .outils__piste {
+  animation-play-state: paused;
+}
+.outils__piste ul {
+  display: flex;
+  gap: 2.5rem;
+  margin: 0;
+  padding: 0 2.5rem 0 0;
+  list-style: none;
+}
+
+.outil {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  text-align: center;
+}
+.outil__logo {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  animation: flotte 2.8s ease-in-out infinite alternate;
+  animation-delay: calc(var(--i) * -0.5s);
+  transition: scale 0.25s ease, rotate 0.25s ease;
+}
+.outil:hover .outil__logo {
+  scale: 1.18;
+  rotate: -8deg;
+}
+.outil__logo--large {
+  width: 96px;
+}
+.outil__logo--sombre {
+  filter: invert(1) hue-rotate(180deg);
+}
+.outil__logo--texte {
+  box-sizing: border-box;
+  display: grid;
+  place-items: center;
+  border: 2px solid #fff;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+.outil__nom {
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+@keyframes apparition {
+  from { opacity: 0; translate: 0 30px; scale: 0.5; rotate: -12deg; }
+}
+@keyframes fondu {
+  from { opacity: 0; }
+}
+@keyframes defile {
+  to { transform: translateX(-50%); }
+}
+@keyframes flotte {
+  from { translate: 0 -4px; }
+  to { translate: 0 4px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .outils__groupe .outil,
+  .outils__defile,
+  .outil__logo { animation: none; }
+  .outils__piste { animation-duration: 160s; }
+}
+
 .journal {
   margin-top: 6rem;
 }
@@ -156,6 +310,14 @@
 @media (max-width: 700px) {
   .competences-page { padding: 0 1.25rem 2rem; }
   .competences-compteur { align-items: flex-start; }
+  .outils__fond { --pad: 1.25rem; padding-top: 2rem; padding-bottom: 3rem; }
+  .outils__groupe { gap: 1.2rem 0.6rem; }
+  .outil { width: 76px; gap: 0.5rem; }
+  .outil__logo { width: 44px; height: 44px; }
+  .outil__logo--large { width: 72px; }
+  .outil__nom { font-size: 0.7rem; white-space: normal; }
+  .outils__defile { gap: 1.5rem; }
+  .outils__piste ul { gap: 1.2rem; padding-right: 1.2rem; }
 
   .ac {
     grid-template-columns: 1fr;

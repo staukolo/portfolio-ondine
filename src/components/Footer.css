@@ -64,7 +64,20 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
+.footer__legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+.footer__legal a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.footer__legal a:hover { color: #fff; text-decoration: underline; }
+
 @media (max-width: 600px) {
   .footer__corps { padding: 3rem 1.25rem 1.5rem; }
   .footer__bas { flex-direction: column; align-items: center; }
+  .footer__legal { justify-content: center; }
 }

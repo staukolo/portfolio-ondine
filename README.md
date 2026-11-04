@@ -20,7 +20,7 @@ npm run lint     # vérifier le code
 
 ```
 src/
-  pages/        Accueil, Projets, ProjetDetail, Competences, Parcours, NotFound
+  pages/        Accueil, Projets, ProjetDetail, Competences, Parcours, MentionsLegales, NotFound
   components/   Navbar, Footer, PageHeader, FicheReflexive, BandePortrait...
   data/         tout le contenu du site en JSON
   utils/        fonctions pour relier les AC aux projets
@@ -39,6 +39,7 @@ Tout est dans `src/data/`, pas besoin de toucher au code :
 | `projets.json`      | les projets et leur fiche (AC, démonstration, bilan)             |
 | `referentiel.json`  | les compétences et AC de BUT 3                                   |
 | `competences.json`  | les skills affichés sur l'accueil                                |
+| `outils.json`       | mes outils et logiciels (page Compétences)                       |
 | `experiences.json`  | mes stages et mon alternance                                     |
 | `formations.json`   | mes formations                                                   |
 

@@ -8,7 +8,7 @@
       "intitule": "Développer pour le web et les médias numériques",
       "niveau": 3,
       "niveau_intitule": "Développer un écosystème numérique complexe",
-      "couleur": "#8cc84b",
+      "couleur": "#e3241b",
       "ac": [
         { "code": "AC34.01", "libelle": "Développer à l’aide d’un framework de développement côté client" },
         { "code": "AC34.02", "libelle": "Développer à l’aide d’un framework de développement côté serveur" },
@@ -23,7 +23,7 @@
       "intitule": "Entreprendre dans le secteur du numérique",
       "niveau": 3,
       "niveau_intitule": "Entreprendre dans le numérique",
-      "couleur": "#0d2259",
+      "couleur": "#111111",
       "ac": [
         { "code": "AC35.01", "libelle": "Piloter un produit, un service ou une équipe" },
         { "code": "AC35.02", "libelle": "Maîtriser la qualité en projet Web ou multimédia" },

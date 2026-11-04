@@ -5,6 +5,10 @@
   padding: 0 2.5rem 2rem;
 }
 
+.parcours-page .page-header {
+  border-bottom: 0;
+}
+
 .parcours-legende {
   display: flex;
   flex-direction: column;
@@ -43,6 +47,24 @@
 }
 .etape:hover::before { scale: 1 1; }
 .etape:first-child { border-top: 0; }
+
+.etape__trait {
+  position: absolute;
+  top: -1.5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--red);
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+}
+.etape__masque {
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.04em 0 0.02em;
+}
+.etape__chiffre { display: inline-block; }
 
 .etape__annee {
   font-size: clamp(3.5rem, 7vw, 5.5rem);

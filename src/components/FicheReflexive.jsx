@@ -1,25 +1,58 @@
 // partie compétences d'un projet : AC, preuves, démonstration et bilan
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ExternalLink } from 'lucide-react';
 import { Github } from './BrandIcons';
 import { trouverAC } from '../utils/competences';
 import './FicheReflexive.css';
 
+gsap.registerPlugin(ScrollTrigger);
+
 function AnalyseAC({ analyse }) {
   const ac = trouverAC(analyse.ac);
   return (
     <article className="analyse" style={{ '--c': ac?.competence.couleur }}>
-      <h3 className="analyse__titre">
-        <span className="analyse__code">{analyse.ac}</span>
-        {ac?.libelle}
-      </h3>
-      <p className="analyse__texte">{analyse.texte}</p>
+      <span className="analyse__code display" aria-hidden="true">
+        {analyse.ac.split('').map((c, i) => (
+          <span key={i} className="analyse__masque"><span className="analyse__lettre">{c}</span></span>
+        ))}
+      </span>
+      <div>
+        <h3 className="analyse__titre">
+          <span className="sr-only">{analyse.ac} : </span>{ac?.libelle}
+        </h3>
+        <p className="analyse__texte">{analyse.texte}</p>
+      </div>
     </article>
   );
 }
 
 function FicheReflexive({ projet }) {
   const { fiche } = projet;
+  const ficheRef = useRef(null);
+
+  // animations au scroll, coupées si on préfère moins de mouvement
+  useEffect(() => {
+    if (!ficheRef.current) return undefined;
+    const ctx = gsap.context(() => {
+      gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
+        const auScroll = (el) => ({ trigger: el, start: 'top 82%', once: true });
+
+        gsap.utils.toArray('.analyse').forEach((el) => {
+          const tl = gsap.timeline({ scrollTrigger: auScroll(el) });
+          tl.from(el.querySelectorAll('.analyse__lettre'), { yPercent: 110, duration: 0.6, stagger: 0.04, ease: 'power4.out' })
+            .from(el.querySelectorAll('.analyse__titre, .analyse__texte'), { opacity: 0, y: 24, duration: 0.6, stagger: 0.1, ease: 'power2.out' }, '<0.15');
+        });
+
+        if (ficheRef.current.querySelector('.fiche__intro')) gsap.from('.fiche__intro', { opacity: 0, y: 24, duration: 0.6, ease: 'power2.out', scrollTrigger: auScroll('.fiche__intro') });
+        if (ficheRef.current.querySelector('.fiche__bloc')) gsap.from('.fiche__bloc', { opacity: 0, y: 40, duration: 0.7, stagger: 0.15, ease: 'power2.out', scrollTrigger: auScroll('.fiche__bilan') });
+      });
+    }, ficheRef);
+    return () => ctx.revert();
+  }, [projet.slug]);
+
   if (!fiche) return null;
 
   const preuves = [
@@ -35,7 +68,7 @@ function FicheReflexive({ projet }) {
   ].filter(Boolean);
 
   return (
-    <section className="fiche" aria-labelledby="fiche-titre">
+    <section className="fiche" aria-labelledby="fiche-titre" ref={ficheRef}>
       <header className="fiche__entete">
         <span className="kicker">Volet compétences / Journal de progression</span>
         <h2 id="fiche-titre" className="display fiche__titre">Ce que ça <em>prouve</em></h2>

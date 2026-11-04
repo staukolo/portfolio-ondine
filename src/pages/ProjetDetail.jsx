@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, ArrowUp, ExternalLink, Calendar } from 'lucide-react';
 import { Github } from '../components/BrandIcons';
 import FicheReflexive from '../components/FicheReflexive';
+import Carrousel from '../components/Carrousel';
 import projetsData from '../data/projets.json';
 import NotFound from './NotFound';
 import './ProjetDetail.css';
@@ -110,6 +111,8 @@ function ProjetDetail() {
           {presentation}
         </>
       )}
+
+      {projet.galerie && <Carrousel titre={projet.galerie.titre} images={projet.galerie.images} />}
 
       <FicheReflexive projet={projet} />
 

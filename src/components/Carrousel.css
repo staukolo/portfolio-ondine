@@ -1,0 +1,132 @@
+/* carrousel d'images et vue en grand */
+.carrousel {
+  margin-top: 4rem;
+}
+
+.carrousel__entete {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.carrousel__titre {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+}
+
+.carrousel__fleches {
+  display: flex;
+  gap: 0.6rem;
+}
+.carrousel__fleches button {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.carrousel__fleches button:hover {
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff;
+}
+
+.carrousel__piste {
+  display: flex;
+  gap: 16px;
+  margin: 0;
+  padding: 0 0 1rem;
+  list-style: none;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+}
+.carrousel__item {
+  flex: 0 0 calc((100% - 32px) / 3);
+  scroll-snap-align: start;
+}
+.carrousel__item button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 1.5px solid var(--ink);
+  background: none;
+  cursor: zoom-in;
+  overflow: hidden;
+}
+.carrousel__item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 210 / 297;
+  object-fit: cover;
+  transition: scale 0.3s ease;
+}
+.carrousel__item button:hover img {
+  scale: 1.04;
+}
+.carrousel__legende {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.visionneuse {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 3.5rem 1rem;
+  background: rgba(17, 17, 17, 0.92);
+  cursor: zoom-out;
+}
+.visionneuse img {
+  max-width: 100%;
+  max-height: calc(100svh - 7rem);
+  cursor: default;
+}
+.visionneuse__fermer {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+.visionneuse__fermer:hover {
+  background: var(--red);
+  border-color: var(--red);
+}
+.visionneuse__compteur {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 700px) {
+  .carrousel__item {
+    flex-basis: 70%;
+  }
+}

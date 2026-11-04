@@ -37,15 +37,14 @@ function Parcours() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
+        // pour chaque étape : un trait rouge passe, l'année monte, puis le texte et l'étiquette
         gsap.utils.toArray('.etape').forEach((etape) => {
-          gsap.from(etape, {
-            opacity: 0,
-            y: 30,
-            duration: 0.6,
-            ease: 'power2.out',
-            clearProps: 'opacity,transform',
-            scrollTrigger: { trigger: etape, start: 'top 90%', once: true },
-          });
+          const tl = gsap.timeline({ scrollTrigger: { trigger: etape, start: 'top 85%', once: true } });
+          tl.fromTo(etape.querySelector('.etape__trait'), { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: 'power2.inOut' })
+            .to(etape.querySelector('.etape__trait'), { scaleX: 0, transformOrigin: 'right', duration: 0.4, ease: 'power2.in' })
+            .from(etape.querySelectorAll('.etape__chiffre'), { yPercent: 110, duration: 0.6, stagger: 0.06, ease: 'power4.out' }, 0.25)
+            .from(etape.querySelectorAll('.etape__contenu > *'), { opacity: 0, x: -24, duration: 0.5, stagger: 0.08, ease: 'power2.out' }, 0.4)
+            .from(etape.querySelector('.etape__type'), { opacity: 0, scale: 0.4, rotate: -25, duration: 0.5, ease: 'back.out(2)' }, 0.7);
         });
       });
     }, timelineRef);
@@ -80,8 +79,11 @@ function Parcours() {
           const anneeSeule = item.type === 'formation';
           return (
             <li key={index} className={`etape etape--${item.type}`}>
+              <span className="etape__trait" aria-hidden="true" />
               <div className="etape__annee display">
-                {new Date(item.dateDebut).getFullYear()}
+                {String(new Date(item.dateDebut).getFullYear()).split('').map((c, i) => (
+                  <span key={i} className="etape__masque"><span className="etape__chiffre">{c}</span></span>
+                ))}
               </div>
 
               <div className="etape__contenu">

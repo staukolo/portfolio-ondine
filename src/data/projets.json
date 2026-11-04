@@ -27,7 +27,7 @@
       "analyses": [
         {
           "ac": "AC34.01",
-          "texte": "L'application est construite avec Ionic et Angular, pour être utilisée sur téléphone pendant la visite. Pour mes écrans, je me suis appuyée sur ce que le framework apporte : des composants autonomes qu'on assemble, des services pour partager les données entre les pages, et le routage pour la navigation. J'ai appris à m'insérer dans une grosse application déjà structurée et à en respecter l'architecture, sans casser le travail de Lou-Anne."
+          "texte": "L'application est construite avec Ionic et Angular, pour être utilisée sur téléphone pendant la visite. Pour mes écrans, je me suis appuyée sur ce que le framework apporte : des composants autonomes qu'on assemble, des services pour partager les données entre les pages, et le routage pour la navigation."
         },
         {
           "ac": "AC34.03",
@@ -62,6 +62,17 @@
     "date_realisation": "2026-10-02",
     "contexte": "academique",
     "mis_en_avant": true,
+    "galerie": {
+      "titre": "Le dossier de conception",
+      "images": [
+        { "src": "/images/projets/empreintes/dossier-1.jpg", "legende": "Couverture" },
+        { "src": "/images/projets/empreintes/dossier-2.jpg", "legende": "Inspirations" },
+        { "src": "/images/projets/empreintes/dossier-3.jpg", "legende": "Concept et narration" },
+        { "src": "/images/projets/empreintes/dossier-4.jpg", "legende": "Parcours du visiteur" },
+        { "src": "/images/projets/empreintes/dossier-5.jpg", "legende": "Direction graphique" },
+        { "src": "/images/projets/empreintes/dossier-6.jpg", "legende": "Réalisation technique" }
+      ]
+    },
     "recap": {
       "cadre": "Festival Kaledoscope de l'UNC, BUT MMI 3",
       "equipe": "Binôme avec Lou-Anne Grosjean",
@@ -90,10 +101,10 @@
   },
   {
     "id": 10,
-    "titre": "Bastien : la mer en héritage",
+    "titre": "Le lagon en héritage",
     "slug": "webdoc-nautilus",
     "description_courte": "Mini web-documentaire : le portrait d'un docteur en écologie marine qui vit sur le lagon pour mieux le protéger",
-    "description_longue": "Mini web-documentaire de 4 à 6 minutes réalisé pour le concours « L'Étincelle Calédonienne : portraits de ceux qui agissent », organisé avec NC La 1ère et diffusé sur sa chaîne YouTube. Il dresse le portrait de Bastien Preuss, docteur en écologie marine, et de son catamaran Nautilus 360, qui lui sert de base pour trois missions : la recherche scientifique sur le lagon, l'éducation des jeunes et le tourisme responsable. Plutôt qu'un reportage technique, le film met en avant son parcours, ses motivations et l'émotion.",
+    "description_longue": "Mini web-documentaire de 4 à 6 minutes réalisé pour le concours « L'Étincelle Calédonienne : portraits de ceux qui agissent », organisé avec NC La 1ère, qui l'a diffusé un temps sur sa chaîne YouTube. Il dresse le portrait de Bastien Preuss, docteur en écologie marine, et de son catamaran Nautilus 360, qui lui sert de base pour trois missions : la recherche scientifique sur le lagon, l'éducation des jeunes et le tourisme responsable. Plutôt qu'un reportage technique, le film met en avant son parcours, ses motivations et l'émotion.",
     "technologies": ["Cadrage", "Montage", "Écriture documentaire", "Habillage"],
     "lien_github": "",
     "lien_demo": "",
@@ -104,9 +115,9 @@
     "recap": {
       "cadre": "Concours NC La 1ère, BUT MMI 3",
       "equipe": "Binôme avec Lou-Anne Grosjean",
-      "role": "Caméra et montage",
+      "role": "Caméra, son, mixage et montage",
       "outils": "DaVinci Resolve",
-      "statut": "Diffusé sur YouTube"
+      "statut": "Diffusé par NC La 1ère"
     },
     "fiche": {
       "ac": ["AC35.01", "AC35.02", "AC35.04"],
@@ -114,7 +125,7 @@
       "analyses": [
         {
           "ac": "AC35.01",
-          "texte": "On a mené le projet à deux de mars à juillet, entre les périodes d'alternance. En se répartissant les rôles dès le départ, on a pu avancer en parallèle et tenir chaque échéance, jusqu'à la projection devant le jury."
+          "texte": "On a mené le projet à deux d'avril à juillet, entre les périodes d'alternance. En se répartissant les rôles dès le départ, on a pu avancer en parallèle et tenir chaque échéance, jusqu'à la projection devant le jury."
         },
         {
           "ac": "AC35.02",
@@ -127,7 +138,7 @@
       ],
       "recul": "Le tournage en mer a été le plus dur : avec la houle, c'était difficile de garder la caméra stable, et il a fallu trier beaucoup de plans. La prochaine fois, je prévoirais un stabilisateur et plus de plans de secours.",
       "dimension_pro": "Un diffuseur, un cahier des charges, des délais et un jury de professionnels : des conditions proches d'une vraie production.",
-      "je_vs_nous": "En binôme avec Lou-Anne Grosjean. On a construit le sujet et le dossier ensemble, puis Lou-Anne a pris la réalisation et les interviews, et moi la caméra et le montage."
+      "je_vs_nous": "En binôme avec Lou-Anne Grosjean. On a construit le sujet et le dossier ensemble, puis Lou-Anne a pris la réalisation et les interviews, et moi la caméra, le son, le mixage et le montage. Lou-Anne a aussi filmé quelques images."
     }
   },
   {
@@ -293,10 +304,11 @@
     "id": 7,
     "titre": "Jeu Phaser multijoueur",
     "slug": "jeu-phaser-multijoueur",
-    "description_courte": "Jeu de plateforme en deux niveaux, jouable à plusieurs en temps réel",
-    "description_longue": "Projet de la ressource R507 : un jeu Phaser 3 en deux niveaux qui se chaînent (monde scrollant avec suivi de caméra, vagues d'étoiles, bombes, porte de fin, puis un second niveau avec timer qui récupère le score). Un serveur Node.js + Socket.IO synchronise les joueurs en temps réel.",
+    "description_courte": "Jeu de plateforme 2D en deux niveaux, jouable à plusieurs en temps réel",
+    "description_longue": "Projet de la ressource R507 : un jeu de plateforme 2D en Phaser 3, avec deux niveaux qui se chaînent (monde scrollant avec suivi de caméra, vagues d'étoiles, bombes, porte de fin, puis un second niveau avec timer qui récupère le score). Un serveur Node.js + Socket.IO synchronise les joueurs en temps réel : on peut tester le multijoueur en ouvrant deux onglets, ou jouer à plusieurs sur le même réseau grâce à un lien.",
     "technologies": ["Phaser 3", "Node.js", "Socket.IO"],
-    "lien_github": "",
+    "image": "/images/projets/jeu-phaser.jpg",
+    "lien_github": "https://github.com/staukolo/phaser-multijoueur-ondine",
     "lien_demo": "",
     "periode": "Avril 2026",
     "date_realisation": "2026-04-15",
@@ -307,7 +319,7 @@
       "equipe": "Seule",
       "role": "Dev full-stack (jeu et serveur)",
       "outils": "Phaser 3, Node.js, Socket.IO",
-      "statut": "Terminé, code pas encore publié"
+      "statut": "Code sur GitHub"
     },
     "fiche": {
       "ac": ["AC34.01", "AC34.02", "AC34.03"],
@@ -326,7 +338,7 @@
           "texte": "Le multijoueur n'a d'intérêt que si on voit les autres bouger en même temps que soi. Chaque mouvement est envoyé au serveur, qui le redistribue aux autres joueurs connectés grâce aux WebSockets : on voit le personnage de l'autre joueur bouger sur son écran en temps réel."
         }
       ],
-      "recul": "",
+      "recul": "Le plus dur a été de synchroniser les joueurs en temps réel. Pour améliorer le jeu, je partagerais aussi les étoiles, les bombes et le score entre les joueurs, et je rendrais leurs mouvements plus fluides.",
       "dimension_pro": "Ce projet m'a permis de créer une architecture client/serveur : Phaser.js côté front et Node.js + Socket.IO côté back. La communication en temps réel via WebSockets est une compétence qu'on retrouve dans beaucoup de projets en entreprise, pas seulement dans le jeu vidéo.",
       "je_vs_nous": "Travail individuel, en m'appuyant sur les cours."
     }

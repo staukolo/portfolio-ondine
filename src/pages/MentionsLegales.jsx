@@ -52,6 +52,10 @@ function MentionsLegales() {
           répondre.
         </p>
         <p>
+          La vidéo du projet Le lagon en héritage est hébergée sur YouTube : si vous la lancez, YouTube
+          (Google) peut collecter des données et déposer des cookies.
+        </p>
+        <p>
           Vous pouvez me demander d'accéder à vos données ou de les supprimer en écrivant à{' '}
           <a href={`mailto:${profil.email}`}>{profil.email}</a>.
         </p>

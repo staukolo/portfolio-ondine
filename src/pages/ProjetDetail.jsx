@@ -3,7 +3,9 @@ import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ExternalLink, Calendar } from 'lucide-react';
 import { Github } from '../components/BrandIcons';
 import Carrousel from '../components/Carrousel';
+import EcransDefilants from '../components/EcransDefilants';
 import EtudeCas from '../components/EtudeCas';
+import Moodboard from '../components/Moodboard';
 import NavProjets from '../components/NavProjets';
 import projetsData from '../data/projets.json';
 import NotFound from './NotFound';
@@ -115,16 +117,32 @@ function ProjetDetail() {
         </div>
       ) : (
         <>
-          {projet.image ? (
+          {projet.video ? (
+            <iframe
+              className="projet-detail__image projet-detail__video"
+              src={`https://www.youtube-nocookie.com/embed/${projet.video}`}
+              title={`Vidéo du projet ${projet.titre}`}
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          ) : projet.image && (
             <img className="projet-detail__image" src={projet.image} alt={`Aperçu du projet ${projet.titre}`} />
-          ) : (
-            <div className="projet-detail__image projet-detail__image--placeholder" />
           )}
           {presentation}
         </>
       )}
 
-      {projet.etude ? <EtudeCas etude={projet.etude}>{carrousel}</EtudeCas> : carrousel}
+      {projet.etude ? (
+        <EtudeCas
+          etude={projet.etude}
+          fond={projet.image || projet.image_mobile}
+        >
+          {carrousel}
+          <EcransDefilants titre={projet.ecrans?.titre} images={projet.ecrans?.images} />
+          <Moodboard images={projet.moodboard} />
+        </EtudeCas>
+      ) : carrousel}
 
       <NavProjets precedent={precedent} suivant={suivant} chemin="/projets" />
     </article>

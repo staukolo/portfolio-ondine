@@ -1,0 +1,59 @@
+/* bande de captures qui défile sur toute la largeur de la page */
+.ecrans {
+  margin-top: 4.5rem;
+}
+.ecrans__titre {
+  margin: 0 0 1rem;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+}
+
+.ecrans__bande {
+  margin-inline: calc(50% - 50vw);
+  padding-block: 1rem;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.ecrans__piste {
+  display: flex;
+  width: max-content;
+  animation: ecrans-defile 70s linear infinite;
+}
+.ecrans__bande:hover .ecrans__piste {
+  animation-play-state: paused;
+}
+.ecrans__piste ul {
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0 1.5rem 0 0;
+  list-style: none;
+}
+
+.ecrans__item {
+  width: 240px;
+  transition: scale 0.25s ease, rotate 0.25s ease;
+}
+.ecrans__item:hover {
+  scale: 1.04;
+  rotate: -2deg;
+}
+.ecrans__item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 353 / 768;
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(17, 17, 17, 0.25);
+}
+
+@keyframes ecrans-defile {
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ecrans__piste { animation-duration: 240s; }
+}
+
+@media (max-width: 700px) {
+  .ecrans__piste ul { gap: 1rem; padding-right: 1rem; }
+  .ecrans__item { width: 170px; }
+}

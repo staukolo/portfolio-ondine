@@ -67,6 +67,27 @@ img {
   display: block;
 }
 
+/* cadre rouge avec des poignées, comme une sélection dans un logiciel de design */
+.cadre-selection {
+  position: relative;
+  outline: 1.5px solid var(--red);
+  outline-offset: 6px;
+}
+.poignee {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border: 1.5px solid var(--red);
+  translate: -50% -50%;
+}
+.poignee--hg { top: -6px; left: -6px; }
+.poignee--hd { top: -6px; left: calc(100% + 6px); }
+.poignee--bg { top: calc(100% + 6px); left: -6px; }
+.poignee--bd { top: calc(100% + 6px); left: calc(100% + 6px); }
+.poignee--h { top: -6px; left: 50%; }
+.poignee--b { top: calc(100% + 6px); left: 50%; }
+
 .display {
   font-family: var(--font);
   font-weight: 800;

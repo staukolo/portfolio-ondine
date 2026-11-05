@@ -1,7 +1,18 @@
-// étude de cas d'un projet : les coulisses étape par étape et ma part du travail
+// étude de cas d'un projet : les coulisses étape par étape et ma contribution
 import './EtudeCas.css';
 
-function EtudeCas({ etude, children }) {
+// bande de texte qui défile au-dessus et en dessous de Ma contribution
+function Defile({ inverse }) {
+  const texte = '✸✦✿      Ma contribution      '.repeat(15);
+  return (
+    <div className={`apport__defile ${inverse ? 'apport__defile--inverse' : ''}`} aria-hidden="true">
+      <span>{texte}</span>
+      <span>{texte}</span>
+    </div>
+  );
+}
+
+function EtudeCas({ etude, fond, children }) {
   return (
     <div className="etude">
       <section className="etude__partie">
@@ -25,19 +36,32 @@ function EtudeCas({ etude, children }) {
         </ol>
       </section>
 
-      <section className="etude__partie etude__apport">
-        <h2 className="display etude__titre">Ma <em>part</em></h2>
-        <div className="etude__groupes">
-          {etude.apport.map((groupe) => (
-            <div key={groupe.titre}>
-              <h3>{groupe.titre}</h3>
-              <ul>
-                {groupe.points.map((point) => <li key={point}>{point}</li>)}
-              </ul>
-            </div>
-          ))}
+      <section className="etude__partie apport">
+        <Defile />
+
+        <div className="apport__scene" style={fond ? { '--fond': `url(${fond})` } : undefined}>
+          <h2 className="display apport__titre">
+            Ma{' '}
+            <span className="cadre-selection apport__cadre">
+              contribution
+              {['hg', 'hd', 'bg', 'bd', 'h', 'b'].map((coin) => <span key={coin} className={`poignee poignee--${coin}`} />)}
+            </span>
+          </h2>
+
+          <div className="etude__groupes">
+            {etude.apport.map((groupe) => (
+              <div key={groupe.titre}>
+                <h3>{groupe.titre}</h3>
+                <ul>
+                  {groupe.points.map((point) => <li key={point}>{point}</li>)}
+                </ul>
+              </div>
+            ))}
+          </div>
+          {etude.note && <p className="etude__note">{etude.note}</p>}
         </div>
-        {etude.note && <p className="etude__note">{etude.note}</p>}
+
+        <Defile inverse />
       </section>
 
       {children}

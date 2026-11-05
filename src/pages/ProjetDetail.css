@@ -93,7 +93,8 @@
   margin-bottom: 3rem;
 }
 
-.projet-detail__image--placeholder {
+.projet-detail__video {
+  display: block;
   background: var(--ink);
 }
 

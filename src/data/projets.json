@@ -7,6 +7,20 @@
     "description_longue": "Application web installable (PWA) de visite guidée de l'ancien bagne de l'Île Nou, réalisée pour l'association Témoignage d'un passé (ATUP). Le visiteur débloque les points du parcours grâce au GPS, découvre l'histoire de chaque lieu (récits, témoignages, photos d'archives, quiz) et gagne des badges en réussissant des mini-jeux. L'interface est bilingue FR/EN.",
     "technologies": ["Ionic", "Angular", "Supabase", "Leaflet", "JavaScript", "PWA"],
     "image": "/images/projets/forcats-nou.jpg",
+    "ecrans": {
+      "titre": "L'application en images",
+      "images": [
+        { "src": "/images/projets/forcats-nou/ecran-1.webp", "legende": "Écran d'inscription de l'application" },
+        { "src": "/images/projets/forcats-nou/ecran-2.webp", "legende": "Page présentant l'équipe et les sources du projet" },
+        { "src": "/images/projets/forcats-nou/ecran-3.webp", "legende": "Carte de l'île avec le parcours et les points à explorer" },
+        { "src": "/images/projets/forcats-nou/ecran-4.webp", "legende": "Fiche de la Boulangerie sur la carte" },
+        { "src": "/images/projets/forcats-nou/ecran-5.webp", "legende": "Journal de bord avec les étapes du parcours" },
+        { "src": "/images/projets/forcats-nou/ecran-6.webp", "legende": "Page À propos sur l'histoire du bagne" },
+        { "src": "/images/projets/forcats-nou/ecran-7.webp", "legende": "Page de la Boulangerie avec son histoire" },
+        { "src": "/images/projets/forcats-nou/ecran-8.webp", "legende": "Photos d'archives de la Boulangerie" },
+        { "src": "/images/projets/forcats-nou/ecran-9.webp", "legende": "Témoignage et quiz de la Boulangerie" }
+      ]
+    },
     "image_mobile": "/images/projets/forcats-nou-mobile.jpg",
     "lien_github": "https://github.com/louanne-star/kaval",
     "lien_demo": "https://forcats-nou.netlify.app",
@@ -45,7 +59,7 @@
         {
           "titre": "UX/UI",
           "points": [
-            "Conception des écrans : login, profils, jeux et quiz",
+            "Conception des écrans : login, onboarding, profils, jeux et quiz",
             "La plupart des pages de détail des points",
             "Page à propos",
             "Animations"
@@ -180,6 +194,7 @@
     "description_courte": "Mini web-documentaire : le portrait d'un docteur en écologie marine qui vit sur le lagon pour mieux le protéger",
     "description_longue": "Mini web-documentaire de 4 à 6 minutes réalisé pour le concours « L'Étincelle Calédonienne : portraits de ceux qui agissent », organisé avec NC La 1ère, qui l'a diffusé un temps sur sa chaîne YouTube. Il dresse le portrait de Bastien Preuss, docteur en écologie marine, et de son catamaran Nautilus 360, qui lui sert de base pour trois missions : la recherche scientifique sur le lagon, l'éducation des jeunes et le tourisme responsable. Plutôt qu'un reportage technique, le film met en avant son parcours, ses motivations et l'émotion.",
     "technologies": ["Cadrage", "Montage", "Écriture documentaire", "Habillage"],
+    "video": "knqioD6TPwc",
     "lien_github": "",
     "lien_demo": "",
     "periode": "Avril — juillet 2026",
@@ -248,6 +263,9 @@
     "description_longue": "Exploration interactive de données en 3D : les mocktails (cocktails sans alcool) de l'API publique TheCocktailDB sont posés sur un comptoir de bar en 3D. On peut tourner autour, cliquer sur un verre pour le voir de près et afficher sa recette, avec un verre qui se remplit en couches de la couleur de chaque ingrédient.",
     "technologies": ["React", "Three.js", "React Three Fiber", "Drei"],
     "image": "/images/projets/bar-3d.jpg",
+    "moodboard": [
+      { "src": "/images/projets/bar-3d-moodboard.webp", "legende": "Planche visuelle du Bar 3D : barre de recherche, carrousel de cocktails, fiche recette, version mobile, palette, icônes et boutons" }
+    ],
     "lien_github": "https://github.com/staukolo/Bar3d_ondine",
     "lien_demo": "https://bar3d-ondine.netlify.app",
     "periode": "Octobre 2026",

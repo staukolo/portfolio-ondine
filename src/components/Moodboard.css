@@ -1,0 +1,72 @@
+/* moodboard : images de tailles différentes sur un fond noir quadrillé */
+.moodboard {
+  margin-top: 4.5rem;
+}
+.moodboard__titre {
+  margin: 0 0 1.5rem;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+}
+
+.moodboard__fond {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: clamp(70px, 8vw, 105px);
+  grid-auto-flow: dense;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  background-color: var(--ink);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.moodboard__image {
+  grid-column: span 4;
+  grid-row: span 2;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.moodboard__image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* le motif se répète toutes les 9 images */
+.moodboard__image:nth-child(9n + 2) { grid-column: span 3; grid-row: span 4; }
+.moodboard__image:nth-child(9n + 3) { grid-column: span 2; }
+.moodboard__image:nth-child(9n + 4) { grid-column: span 3; }
+.moodboard__image:nth-child(9n + 6) { grid-column: span 5; }
+.moodboard__image:nth-child(9n + 7) { grid-column: span 3; }
+.moodboard__image:nth-child(9n + 8) { grid-column: span 5; }
+
+@media (max-width: 700px) {
+  .moodboard__fond {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 38vw;
+    gap: 0.5rem;
+    padding: 0.75rem;
+  }
+  .moodboard__image:nth-child(n) {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  .moodboard__image:nth-child(3n + 1) {
+    grid-column: span 2;
+  }
+}
+
+/* une seule image : elle prend toute la largeur de la page */
+.moodboard__fond:has(> :only-child) {
+  display: block;
+  margin-inline: calc(50% - 50vw);
+}
+.moodboard__fond:has(> :only-child) .moodboard__image {
+  border-radius: 0;
+}
+.moodboard__fond:has(> :only-child) img {
+  height: auto;
+}

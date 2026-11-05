@@ -1,0 +1,218 @@
+{
+  "forcats-nou": {
+    "ac": [
+      "AC34.01",
+      "AC34.03",
+      "AC34.05",
+      "AC35.02"
+    ],
+    "intro": "Pour la SAE 501, on avait le projet Patrimoine Live, donc on a créé Forçat's Nou : l'association ATUP voulait faire découvrir le bagne de l'Île Nou. Le bagne de Nouville a beaucoup d'histoire, mais il n'est pas assez visité, et les jeunes ne s'y intéressent pas vraiment. On a fait beaucoup de recherches, et on a trouvé l'idée avec notre commanditaire, Yves Mermoud, président de l'ATUP : une application pour visiter tous les lieux historiques de l'époque. Avant de coder, on a défini la structure de l'application et pensé l'expérience utilisateur pour qu'elle soit intuitive, puis on a réalisé les maquettes.",
+    "analyses": [
+      {
+        "ac": "AC34.01",
+        "texte": "L'application est une PWA construite avec Ionic et Angular, pour être utilisée sur téléphone pendant la visite. Pour mes écrans, j'ai utilisé des composants autonomes, des services pour partager les données et le routage. J'ai aussi intégré Supabase pour l'authentification, la base de données et le stockage. La carte, faite avec Leaflet, combine un rendu vectoriel et une vue satellite, avec un itinéraire piéton calculé en temps réel."
+      },
+      {
+        "ac": "AC34.03",
+        "texte": "Chaque zone peut proposer un mini-jeu qui rapporte un badge. Il y a cinq jeux en HTML, CSS et JavaScript : codés avec Lou-Anne (Mémoire, Tribunal du bagne, Les mots du bagne, Évasion et Les 7 différences). Chaque jeu tourne dans une iframe et envoie son résultat à l'application avec postMessage : on peut en ajouter ou en remplacer un sans toucher au reste. Avec l'accord d'Yves Mermoud, gagner les cinq jeux donne une place gratuite pour le musée : un trigger SQL crée un code unique, affiché en QR code. L'équipe du musée le scanne et valide la place avec un code PIN, et le code ne sert qu'une seule fois."
+      },
+      {
+        "ac": "AC34.05",
+        "texte": "L'application est redéployée automatiquement sur Netlify à chaque push. Quand le build a cassé, j'ai lu les logs et trouvé deux problèmes : une version de Node trop ancienne et un budget de styles Angular dépassé. J'ai corrigé les deux et le déploiement refonctionne."
+      },
+      {
+        "ac": "AC35.02",
+        "texte": "L'application s'adresse au grand public, en français et en anglais : l'interface comme le contenu historique basculent instantanément d'une langue à l'autre. Elle devait convenir à tout le monde, même aux personnes âgées : des textes lisibles et pas trop petits, et des jeux faciles à faire. Comme elle collecte des données personnelles, j'ai réécrit le texte RGPD, imposé un mot de passe conforme et la validation de l'email. J'ai aussi corrigé des points GPS, relu les textes historiques, rédigé le contenu manquant (histoire, témoignage, quiz) et géré les photos par point. J'ai compris que la qualité, c'est aussi l'expérience utilisateur, le contenu et la sécurité, pas seulement le code."
+      }
+    ],
+    "recul": "Le plus dur a été de travailler à deux sur le même code : on a eu des conflits de fusion et des fichiers mal placés à nettoyer. Avec le recul, je découperais mieux les tâches dès le départ et je ferais des pull requests plus petites.",
+    "dimension_pro": "Ce projet ressemble à une vraie mission en entreprise : un client, une équipe qui mêle développement, communication et design, du travail à plusieurs avec Git et une application en ligne. J'ai participé à toutes les étapes, de la conception des écrans à la mise en ligne.",
+    "je_vs_nous": "Projet à cinq avec Lou-Anne Grosjean, Marie-Loane Diemene, Graig Moury et Anaelle Watanabe. Côté développement, Lou-Anne et moi nous sommes partagé la plupart des tâches, en relisant le travail de l'autre. Je me suis fait aider par Claude, un assistant IA. On a gardé la main sur notre code, notre design et notre contenu."
+  },
+  "empreintes": {
+    "ac": [
+      "AC34.03",
+      "AC35.04"
+    ],
+    "preuves": [
+      {
+        "label": "Dossier de conception",
+        "url": "/docs/dossier-conception-empreintes.pdf"
+      }
+    ],
+    "intro": "Le sujet était de prolonger le parcours de fresques du campus par un dispositif numérique, sans jamais modifier l'œuvre de l'artiste. Avec Lou-Anne, on a imaginé « Empreintes » : chaque fresque cache une Empreinte, une capsule qui reprend la molécule déjà peinte dans l'œuvre (kératine pour la tortue, cyanidine pour l'hibiscus, mélanine et caroténoïdes pour le loriquet).",
+    "analyses": [
+      {
+        "ac": "AC34.03",
+        "texte": "Devant une fresque, le visiteur la scanne avec son téléphone. La reconnaissance d'image (MindAR) détecte quelle fresque est filmée et fait apparaître son personnage en 3D. Un mode Explorer garde la scène à l'écran quand on détourne le téléphone, et un joystick tactile permet d'attraper l'Empreinte. Le prototype reconnaît 3 fresques, chacune avec son personnage, son mini-jeu et sa voix."
+      },
+      {
+        "ac": "AC35.04",
+        "texte": "Le projet s'inscrit dans le Festival Kaledoscope de l'Université : il fallait convaincre que le dispositif respectait l'intention de l'artiste et avait un vrai sens scientifique. On a fait un dossier de conception : nos inspirations et notre veille (Pokémon GO, Artivive, Revivre, Mario Kart), le fil conducteur (le visiteur devient collecteur de mémoire), les 5 fresques et leurs molécules (les 3 de Kuby Kolor et 2 qu'on a imaginées), le parcours du visiteur, la direction graphique et les choix techniques justifiés (sans installation, accessible par QR code). J'ai appris à défendre un projet en expliquant le pourquoi de chaque choix, et pas seulement le comment."
+      }
+    ],
+    "recul": "La réalité augmentée sur téléphone impose beaucoup de contraintes : la caméra ne marche qu'en HTTPS, et il faut trouver ou créer un modèle 3D pour chaque personnage. Ce prototype ne couvre que 3 fresques sur les 5 prévues. La prochaine étape serait de le tester avec de vrais visiteurs devant les fresques.",
+    "dimension_pro": "Ce projet montre que je sais partir d'une contrainte artistique et scientifique pour concevoir une expérience utilisateur complète. La réalité augmentée et la médiation culturelle numérique sont de plus en plus demandées par les musées et les collectivités.",
+    "je_vs_nous": "Projet en binôme avec Lou-Anne Grosjean. On a défini le concept ensemble (le fil conducteur, les Empreintes, le parcours du visiteur) et rédigé le dossier de conception à deux, en confrontant nos idées à chaque étape. J'ai aussi enregistré les voix des espèces. Je me suis fait aider par Claude, un assistant IA. On a gardé la main sur notre code, notre design et notre contenu."
+  },
+  "webdoc-nautilus": {
+    "ac": [
+      "AC35.01",
+      "AC35.02",
+      "AC35.04"
+    ],
+    "intro": "Pour le concours de NC La 1ère, on devait faire le portrait d'un acteur local qui fait avancer la Nouvelle-Calédonie.",
+    "analyses": [
+      {
+        "ac": "AC35.01",
+        "texte": "On a mené le projet à deux d'avril à juillet, entre les périodes d'alternance. En se répartissant les rôles dès le départ, on a pu avancer en parallèle et tenir chaque échéance, jusqu'à la projection devant le jury, puis la diffusion par NC La 1ère."
+      },
+      {
+        "ac": "AC35.02",
+        "texte": "Le film devait être diffusable par un média : Full HD, 4 à 6 minutes, son clair, titre, générique et habillage. À la caméra, j'ai veillé à la qualité des plans ; au montage sur DaVinci Resolve, j'ai construit le rythme en alternant moments calmes et séquences dynamiques."
+      },
+      {
+        "ac": "AC35.04",
+        "texte": "On a défendu notre sujet à l'oral devant NC La 1ère : le portrait de Bastien Preuss, notre angle, nos intentions de tournage et une proposition de logo. On a ensuite rendu un dossier complet (synopsis, note d'intention, découpage, feuille de service)."
+      }
+    ],
+    "recul": "Le tournage en mer a été le plus dur : avec la houle, c'était difficile de garder la caméra stable, et il a fallu trier beaucoup de plans. La prochaine fois, je prévoirais un stabilisateur et plus de plans de secours.",
+    "dimension_pro": "Un diffuseur, un cahier des charges, des délais et un jury de professionnels : des conditions proches d'une vraie production.",
+    "je_vs_nous": "En binôme avec Lou-Anne Grosjean. On a construit le sujet et le dossier ensemble, puis Lou-Anne a pris la réalisation et les interviews, et moi la caméra, le son, le mixage et le montage. Lou-Anne a aussi filmé quelques images."
+  },
+  "bar-3d": {
+    "ac": [
+      "AC34.01",
+      "AC34.03",
+      "AC35.02"
+    ],
+    "intro": "Le sujet était d'explorer des données en 3D avec React. J'ai choisi l'API TheCocktailDB et le thème des mocktails : chaque boisson devient un verre en 3D posé sur un comptoir.",
+    "analyses": [
+      {
+        "ac": "AC34.01",
+        "texte": "Une scène avec des dizaines de verres, un panneau de détail et une recette : il fallait que le code reste lisible. J'ai utilisé React avec React Three Fiber et Drei, et découpé la scène en composants (BarScene, DrinkModel, RecipeGlass, DrinkDetail). Les modèles 3D, importés depuis Sketchfab, sont chargés et préchargés avec useGLTF, et OrbitControls permet de tourner autour du bar. Chaque partie a son rôle et peut évoluer sans toucher aux autres : j'ai appris à penser une scène 3D comme une interface React."
+      },
+      {
+        "ac": "AC34.03",
+        "texte": "Une simple liste de recettes, c'est ennuyeux à lire : le but était de rendre les données agréables à explorer. J'ai géré le survol et le clic sur les verres, et animé le verre choisi pour qu'il vienne au premier plan (interpolation dans useFrame). J'ai aussi créé un verre « recette » qui montre la boisson en couches, avec une couleur par ingrédient calculée à partir des données de l'API. On comprend une recette d'un coup d'œil, sans lire la liste des ingrédients."
+      },
+      {
+        "ac": "AC35.02",
+        "texte": "L'API renvoie les recettes une par une, et charger tous les mocktails faisait tellement de requêtes que certaines échouaient. J'ai ajouté plusieurs essais en cas d'échec, limité le nombre de requêtes à 6 en même temps et mis les données en cache dans sessionStorage. J'ai aussi filtré les boissons chaudes, traduit les ingrédients et les mesures en français. Le bar se charge maintenant de façon fiable, et j'ai compris l'importance de prévoir les erreurs réseau dès le départ."
+      }
+    ],
+    "recul": "La vraie difficulté, c'était de savoir comment transformer les données d'une API en une exploration interactive en 3D : choisir quoi montrer, comment représenter une recette en volume, et comment passer d'une vue d'ensemble du bar au détail d'un verre sans perdre l'utilisateur. J'ai fait plusieurs essais avant de trouver la bonne idée, le verre qui se remplit en couches.",
+    "dimension_pro": "Ce projet prouve que je sais brancher une API externe sur une interface 3D interactive, en gérant les erreurs réseau et les performances. La 3D dans le navigateur sert de plus en plus pour présenter des produits en e-commerce ou rendre des données plus parlantes.",
+    "je_vs_nous": "Travail individuel, en m'appuyant sur les cours. Je me suis fait aider par Claude, un assistant IA. J'ai gardé la main sur le code, le design et le contenu."
+  },
+  "scene-3d": {
+    "ac": [
+      "AC34.01",
+      "AC34.03"
+    ],
+    "intro": "Un TP pour aller plus loin en 3D avec React : physique, animations et effets visuels.",
+    "analyses": [
+      {
+        "ac": "AC34.01",
+        "texte": "J'ai construit la scène avec React Three Fiber et l'écosystème de librairies qui l'accompagne : Drei pour charger les modèles 3D importés depuis Sketchfab et Poly Pizza, et leurs animations, Rapier pour la physique (le terrain sert de sol et un bloc de neige tombe et rebondit dessus), et des effets de post-production (lumière qui « bave », vignette). J'ai appris à assembler plusieurs librairies dans un même projet."
+      },
+      {
+        "ac": "AC34.03",
+        "texte": "On déplace le personnage au clavier (ZQSD ou flèches) et il passe de l'animation « repos » à « marche » en douceur. Pour qu'il suive les reliefs du terrain, je lance un rayon vers le bas à chaque image pour trouver la hauteur du sol. La caméra le suit à la 3e personne, et un panneau Leva permet de régler la scène en direct."
+      }
+    ],
+    "recul": "Le plus dur a été de garder le personnage collé au sol sur un terrain qui monte et qui descend, sans qu'il passe à travers ou qu'il flotte. Pour aller plus loin, j'ajouterais des contrôles tactiles pour le téléphone et des collisions avec les éléments du décor.",
+    "dimension_pro": "Ce projet m'a appris à combiner physique, animation et effets visuels dans le navigateur, des compétences utiles pour des configurateurs 3D, des visites virtuelles ou des expériences interactives.",
+    "je_vs_nous": "Travail individuel, en m'appuyant sur les cours. Je me suis fait aider par Claude, un assistant IA. J'ai gardé la main sur le code, le design et le contenu."
+  },
+  "d-3d": {
+    "ac": [
+      "AC34.01",
+      "AC34.03"
+    ],
+    "intro": "Ce TP noté était ma première prise en main de React Three Fiber : il fallait créer un dé 3D texturé dont la rotation suit la valeur tirée, puis le rendre sur GitHub et le déployer sur Netlify.",
+    "analyses": [
+      {
+        "ac": "AC34.01",
+        "texte": "Avec React, j'ai géré la valeur du dé et l'historique des lancers, puis créé la scène avec React Three Fiber : Canvas, lumières, et un composant Dice réutilisable qui reçoit la valeur à afficher. Le dé montre toujours la valeur tirée, et j'ai compris comment React et Three.js se répartissent le travail."
+      },
+      {
+        "ac": "AC34.03",
+        "texte": "Un dé qui change de face d'un coup n'est pas très convaincant. Au clic sur « Lancer le dé », un nombre est tiré entre 1 et 6, et le cube tourne progressivement jusqu'à la bonne face grâce à une interpolation dans useFrame. Les 6 textures fournies sont chargées avec useLoader et associées aux faces. L'historique des lancers, demandé par le prof, est sauvegardé dans le localStorage : il reste même après un rechargement de la page."
+      }
+    ],
+    "recul": "Au début, les faces affichées ne correspondaient pas au résultat : l'ordre des matériaux d'un cube dans Three.js n'est pas 1 à 6, il a fallu corriger le mapping des faces. Aujourd'hui, j'ajouterais une vraie animation de lancer (plusieurs tours, rebond).",
+    "dimension_pro": "Petit projet, mais il m'a donné les bases de la 3D avec React (scène, textures, animation) que j'ai ensuite réutilisées sur Bar 3D, un projet beaucoup plus complet.",
+    "je_vs_nous": "Travail individuel, en m'appuyant sur les cours."
+  },
+  "avengers-symfony": {
+    "ac": [
+      "AC34.02",
+      "AC34.04"
+    ],
+    "intro": "Ce projet a été réalisé en cours de Symfony, exercice après exercice.",
+    "analyses": [
+      {
+        "ac": "AC34.02",
+        "texte": "La partie serveur est faite avec Symfony, en architecture MVC. Les entités Doctrine ont leurs migrations et sont liées entre elles : un auteur a plusieurs livres (OneToMany / ManyToOne), un marque-page a plusieurs mots-clés (ManyToMany). Les contrôleurs utilisent des routes préfixées et des paramètres contrôlés (/livre/detail/{id} n'accepte que des nombres), l'affichage passe par Twig avec un héritage de templates (en-tête, navigation et pied de page communs), et j'ai écrit des requêtes personnalisées avec le QueryBuilder et en DQL (livres par première lettre, auteurs ayant plus de N livres, nombre de livres). Résultat : un CRUD complet sur des données liées."
+      },
+      {
+        "ac": "AC34.04",
+        "texte": "Plusieurs formulaires ont des champs en commun, comme l'adresse. Pour ne pas répéter le code, j'ai créé mes propres types de formulaires (LivreType, AuteurType, EmployeType, AdresseType). AdresseType est imbriqué dans EmployeType, et je peux le réutiliser dans n'importe quel autre formulaire. Dans LivreType, un EntityType permet de choisir l'auteur parmi ceux qui existent déjà. J'ai aussi intégré le bundle DoctrineFixturesBundle pour générer des données de test qu'on recrée en une commande, ce qui m'a permis de retirer les routes d'ajout provisoires."
+      }
+    ],
+    "recul": "J'ai appris à être plus rigoureuse avec Git.",
+    "dimension_pro": "Symfony n'est pas un framework récent, mais c'est justement ce qui en fait un outil solide : beaucoup d'entreprises l'utilisent encore, notamment pour faire évoluer des applications qui existent depuis longtemps. Savoir créer des entités et leurs relations, gérer les migrations, écrire des requêtes personnalisées et construire des formulaires réutilisables, c'est directement utile en poste.",
+    "je_vs_nous": "Travail individuel, en m'appuyant sur les cours."
+  },
+  "jeu-phaser-multijoueur": {
+    "ac": [
+      "AC34.01",
+      "AC34.02",
+      "AC34.03"
+    ],
+    "intro": "Pour ce projet de la ressource R507, on a appris Phaser à partir d'un tutoriel de jeu de plateforme, puis on devait rendre ce jeu multijoueur avec Socket.IO.",
+    "analyses": [
+      {
+        "ac": "AC34.01",
+        "texte": "En partant du tutoriel du cours, j'ai utilisé Phaser 3 comme framework client, avec la physique arcade, les colliders et les overlaps. J'ai fait deux niveaux qui s'enchaînent : le niveau 1 a un monde scrollant avec suivi de caméra, des vagues d'étoiles, des bombes et une porte de fin ; le niveau 2 récupère le score du niveau précédent et ajoute un chronomètre."
+      },
+      {
+        "ac": "AC34.02",
+        "texte": "Pour jouer à plusieurs, les navigateurs des joueurs doivent passer par un serveur commun. Je l'ai codé en Node.js avec Express et Socket.IO : gestion des connexions, synchronisation des positions en temps réel, et nettoyage des joueurs à la déconnexion pour ne pas laisser de personnages « fantômes »."
+      },
+      {
+        "ac": "AC34.03",
+        "texte": "Le multijoueur n'a d'intérêt que si on voit les autres bouger en même temps que soi. Chaque mouvement est envoyé au serveur, qui le redistribue aux autres joueurs connectés grâce aux WebSockets : on voit le personnage de l'autre joueur bouger sur son écran en temps réel. On peut tester avec deux onglets, ou jouer à plusieurs sur le même réseau."
+      }
+    ],
+    "recul": "Le plus dur a été de synchroniser les joueurs en temps réel. Pour améliorer le jeu, je partagerais aussi les étoiles, les bombes et le score entre les joueurs, et je rendrais leurs mouvements plus fluides.",
+    "dimension_pro": "Ce projet m'a permis de créer une architecture client/serveur : Phaser côté front, Node.js, Express et Socket.IO côté back. La communication en temps réel via WebSockets est une compétence qu'on retrouve dans beaucoup de projets en entreprise, pas seulement dans le jeu vidéo.",
+    "je_vs_nous": "Travail individuel, en m'appuyant sur les cours."
+  },
+  "portfolio": {
+    "ac": [
+      "AC34.01",
+      "AC34.04",
+      "AC34.05"
+    ],
+    "intro": "Le portfolio doit à la fois montrer mes meilleurs travaux (le volet public) et prouver mes apprentissages critiques (cet espace enseignants).",
+    "analyses": [
+      {
+        "ac": "AC34.01",
+        "texte": "Le site est développé en React avec React Router : une route par page, et une page détail générée pour chaque projet à partir de son slug, ce qui rend la navigation instantanée. Les animations GSAP sont désactivées automatiquement si le visiteur a demandé à réduire les animations, pour que le site reste agréable aussi pour les personnes sensibles au mouvement."
+      },
+      {
+        "ac": "AC34.04",
+        "texte": "Le contenu va évoluer toute l'année, et je ne voulais pas retoucher le code à chaque ajout. J'ai créé des composants réutilisables (l'en-tête de page, la bande de papier déchiré, le texte défilant, la fiche réflexive) et rangé le contenu dans des fichiers JSON. L'espace enseignants relie automatiquement chaque AC aux projets qui le prouvent : ajouter un projet ou une fiche se fait en modifiant un seul fichier."
+      },
+      {
+        "ac": "AC34.05",
+        "texte": "Le site est hébergé sur Netlify et redéployé automatiquement à chaque push sur GitHub : chaque modification est en ligne quelques minutes après. J'ai ajouté une règle de redirection pour que les URL des pages fonctionnent aussi quand on les ouvre directement ou qu'on recharge la page, donc tous les liens sont partageables."
+      }
+    ],
+    "recul": "J'ai changé plusieurs fois de direction artistique avant de trouver le style poster qui me ressemble.",
+    "dimension_pro": "Le portfolio est ma carte de visite pour un premier emploi ou pour la suite de mes études. Il montre que je sais mener un site de A à Z : design, développement, organisation du contenu et mise en ligne.",
+    "je_vs_nous": "Travail individuel, en m'appuyant sur les cours. Pour coder ce site, je me suis fait aider par Claude, un assistant IA ; j'ai gardé la main sur le design, le contenu et le code."
+  }
+}

@@ -254,9 +254,6 @@
   transition: translate 0.2s ease;
 }
 .skill:hover .skill__icone { translate: 0 -3px; }
-.skill--backend .skill__icone { background: #07142a; color: #5fb2ff; }
-.skill--bdd .skill__icone { background: #1f1300; color: #ffb000; }
-.skill--outil .skill__icone { background: #170a26; color: #c58bff; }
 .skill__nom {
   font-size: 0.66rem;
   line-height: 1.2;
@@ -366,13 +363,6 @@
 }
 .polaroid-mini__legende strong { font-size: 1rem; }
 .polaroid-mini__legende span { font-size: 0.78rem; line-height: 1.4; color: var(--ink-soft); }
-
-.studio__socials {
-  display: flex;
-  justify-content: center;
-  gap: 0.8rem;
-  margin-top: 4rem;
-}
 
 @media (max-width: 1000px) {
   .hello { grid-template-columns: 0.9fr 1.4fr; }

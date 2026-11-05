@@ -29,8 +29,7 @@ function AnalyseAC({ analyse }) {
   );
 }
 
-function FicheReflexive({ projet }) {
-  const { fiche } = projet;
+function FicheReflexive({ projet, fiche }) {
   const ficheRef = useRef(null);
 
   // animations au scroll, coupées si on préfère moins de mouvement
@@ -71,7 +70,7 @@ function FicheReflexive({ projet }) {
     <section className="fiche" aria-labelledby="fiche-titre" ref={ficheRef}>
       <header className="fiche__entete">
         <span className="kicker">Volet compétences / Journal de progression</span>
-        <h2 id="fiche-titre" className="display fiche__titre">Ce que ça <em>prouve</em></h2>
+        <h2 id="fiche-titre" className="display fiche__titre">Fiche <em>réflexive</em></h2>
       </header>
 
       <div className="fiche__bandeau">
@@ -83,7 +82,7 @@ function FicheReflexive({ projet }) {
               return (
                 <li key={code}>
                   <Link
-                    to={`/competences#${code}`}
+                    to={`/espace-enseignants#${code}`}
                     className="fiche__ac-code"
                     style={{ '--c': ac?.competence.couleur }}
                     title={ac?.libelle}

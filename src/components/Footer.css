@@ -4,6 +4,19 @@
   scroll-margin-top: 4rem;
 }
 
+.footer--colle {
+  margin-top: 0;
+}
+.footer--colle .footer__corps {
+  padding-top: 0;
+}
+.footer__trait {
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+  border: 0;
+  border-top: 2px solid #fff;
+}
+
 .footer__corps {
   padding: 4rem 2.5rem 2rem;
   text-align: center;

@@ -114,15 +114,6 @@
   line-height: 1.55;
 }
 
-.polaroid__body .polaroid__fiche {
-  margin: -0.2rem 0 0.9rem;
-  font-weight: 700;
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--red);
-}
-
 .polaroid__tags {
   display: flex;
   flex-wrap: wrap;

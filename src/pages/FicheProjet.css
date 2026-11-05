@@ -1,0 +1,39 @@
+/* styles de la page d'une fiche réflexive */
+.fiche-projet {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 4rem 3rem 5rem;
+}
+
+.fiche-projet__retour {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 2rem;
+  color: var(--red);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+.fiche-projet__retour:hover {
+  text-decoration: underline;
+}
+
+.fiche-projet__entete {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem 2rem;
+}
+.fiche-projet__titre {
+  margin: 0;
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  line-height: 0.95;
+}
+
+@media (max-width: 768px) {
+  .fiche-projet {
+    padding: 2.5rem 1.25rem 4rem;
+  }
+}

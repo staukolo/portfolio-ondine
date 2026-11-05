@@ -1,11 +1,14 @@
 // page d'accueil : titre PORTFOLIO, présentation, bande portrait et projets
 import { useState, useEffect, useRef } from 'react';
-import { ArrowRight, ArrowUpRight, FileDown } from 'lucide-react';
+import {
+  ArrowRight, ArrowUpRight, FileDown, PenTool, Code, MousePointerClick,
+  Box, Clapperboard, Sparkles, Camera, Lightbulb,
+} from 'lucide-react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
-import SocialLinks from '../components/SocialLinks';
 import BandePortrait from '../components/BandePortrait';
+import MesOutils from '../components/MesOutils';
 import profil from '../data/profil.json';
 import projetsData from '../data/projets.json';
 import competencesData from '../data/competences.json';
@@ -60,12 +63,7 @@ const BANDE_SEGMENTS = [
 ];
 
 
-// "React" → "Re", "PHP MVC" → "PM" pour les icônes de skills
-const abreviation = (nom) => {
-  const mots = nom.replace(/[^\p{L}\s.]/gu, ' ').split(/\s+/).filter(Boolean);
-  if (mots.length > 1) return (mots[0][0] + mots[1][0]).toUpperCase();
-  return mots[0][0].toUpperCase() + (mots[0][1] ?? '').toLowerCase();
-};
+const ICONES_SKILLS = { PenTool, Code, MousePointerClick, Box, Clapperboard, Sparkles, Camera, Lightbulb };
 
 const formatMois = (date) => date
   ? new Date(date).toLocaleDateString('fr-FR', { month: 'short', year: 'numeric' })
@@ -239,6 +237,12 @@ function Accueil() {
             l’émotion d’une image.
           </p>
 
+          <h3 className="display hello__sous-titre">Ce que je cherche</h3>
+          <p className="hello__ligne">
+            Continuer mes études dans une formation qui mêle expérience utilisateur, UX/UI design,
+            design d’expérience et front-end, ou saisir une opportunité professionnelle dans ces domaines.
+          </p>
+
           {formation && (
             <>
               <h3 className="display hello__sous-titre">Formation</h3>
@@ -260,12 +264,15 @@ function Accueil() {
         <aside className="hello__aside">
           <h3 className="display hello__sous-titre">Skills</h3>
           <ul className="skills">
-            {competencesData.map((c) => (
-              <li key={c.id} className={`skill skill--${c.categorie}`} title={c.nom}>
-                <span className="skill__icone" aria-hidden="true">{abreviation(c.nom)}</span>
-                <span className="skill__nom">{c.nom}</span>
-              </li>
-            ))}
+            {competencesData.map((c) => {
+              const Icone = ICONES_SKILLS[c.icone];
+              return (
+                <li key={c.id} className="skill">
+                  <span className="skill__icone" aria-hidden="true"><Icone size={22} /></span>
+                  <span className="skill__nom">{c.nom}</span>
+                </li>
+              );
+            })}
           </ul>
 
           <h3 className="display hello__sous-titre">Expérience</h3>
@@ -306,8 +313,9 @@ function Accueil() {
           ))}
         </div>
 
-        <SocialLinks className="studio__socials" />
       </section>
+
+      <MesOutils />
     </div>
   );
 }

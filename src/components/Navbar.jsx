@@ -7,7 +7,6 @@ import './Navbar.css';
 const LIENS = [
   { to: '/', label: 'Accueil', end: true },
   { to: '/projets', label: 'Projets' },
-  { to: '/competences', label: 'Compétences' },
   { to: '/parcours', label: 'Parcours' },
 ];
 

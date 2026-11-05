@@ -1,9 +1,9 @@
 // carrousel de quelques pages d'un document, on clique pour voir en grand
 import { useEffect, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, X } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ExternalLink, X } from 'lucide-react';
 import './Carrousel.css';
 
-function Carrousel({ titre, images }) {
+function Carrousel({ titre, images, document }) {
   const pisteRef = useRef(null);
   const [ouverte, setOuverte] = useState(null);
 
@@ -28,7 +28,14 @@ function Carrousel({ titre, images }) {
   return (
     <section className="carrousel">
       <div className="carrousel__entete">
-        <h2 className="display carrousel__titre">{titre}</h2>
+        <div className="carrousel__intro">
+          <h2 className="display carrousel__titre">{titre}</h2>
+          {document && (
+            <a href={document} target="_blank" rel="noopener noreferrer" className="btn-outline">
+              Voir le dossier complet <ExternalLink size={16} />
+            </a>
+          )}
+        </div>
         <div className="carrousel__fleches">
           <button type="button" onClick={() => defiler(-1)} aria-label="Images précédentes"><ArrowLeft size={20} /></button>
           <button type="button" onClick={() => defiler(1)} aria-label="Images suivantes"><ArrowRight size={20} /></button>

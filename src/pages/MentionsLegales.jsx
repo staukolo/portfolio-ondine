@@ -27,7 +27,7 @@ function MentionsLegales() {
         <h2 className="display legal__titre"><em>Hébergement</em></h2>
         <p>
           Netlify, Inc.<br />
-          512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis
+          101 2nd Street, Suite 575, San Francisco, CA 94105, États-Unis
         </p>
       </section>
 

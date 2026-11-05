@@ -56,10 +56,6 @@ function Projets() {
               </h3>
               <p>{projet.description_courte}</p>
 
-              {projet.fiche?.ac?.length > 0 && (
-                <p className="polaroid__fiche">{projet.fiche.ac.join(' · ')}</p>
-              )}
-
               <div className="polaroid__tags">
                 {projet.technologies.map((tech) => (
                   <span key={tech} className="tag">{tech}</span>

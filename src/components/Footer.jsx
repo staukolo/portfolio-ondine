@@ -1,4 +1,4 @@
-// footer avec mes contacts, présent sur toutes les pages
+// footer avec mes contacts et le lien vers les mentions légales
 import { Link } from 'react-router-dom';
 import { Mail, Phone, FileDown } from 'lucide-react';
 import SocialLinks from './SocialLinks';
@@ -6,12 +6,14 @@ import TornEdge from './TornEdge';
 import profil from '../data/profil.json';
 import './Footer.css';
 
-function Footer() {
+// sur l'accueil, le footer continue la bande noire de Mes outils
+function Footer({ colle = false }) {
   return (
-    <footer className="footer" id="contact">
-      <TornEdge cote="haut" graine={23} />
+    <footer className={`footer ${colle ? 'footer--colle' : ''}`} id="contact">
+      {!colle && <TornEdge cote="haut" graine={23} />}
 
       <div className="footer__corps">
+        {colle && <hr className="footer__trait" />}
         <span className="kicker footer__kicker">Contact</span>
         <h2 className="display footer__titre">Discutons <em>ensemble</em></h2>
 

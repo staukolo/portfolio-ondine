@@ -1,9 +1,10 @@
-// page d'un projet : présentation, technos, liens et partie compétences
+// page d'un projet : présentation, technos, liens et images
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, ArrowUp, ExternalLink, Calendar } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Calendar } from 'lucide-react';
 import { Github } from '../components/BrandIcons';
-import FicheReflexive from '../components/FicheReflexive';
 import Carrousel from '../components/Carrousel';
+import EtudeCas from '../components/EtudeCas';
+import NavProjets from '../components/NavProjets';
 import projetsData from '../data/projets.json';
 import NotFound from './NotFound';
 import './ProjetDetail.css';
@@ -28,12 +29,23 @@ function ProjetDetail() {
   const precedent = projetsData[(index - 1 + projetsData.length) % projetsData.length];
   const suivant = projetsData[(index + 1) % projetsData.length];
 
+  const carrousel = projet.galerie && <Carrousel titre={projet.galerie.titre} images={projet.galerie.images} document={projet.galerie.document} />;
+
   const presentation = (
     <div className="projet-detail__body">
-      <section>
-        <h2>Le <em>projet</em></h2>
-        <p>{projet.description_longue}</p>
-      </section>
+      {projet.etude ? (
+        <section className="projet-detail__recit">
+          <h2>Le <em>contexte</em></h2>
+          <p>{projet.etude.contexte}</p>
+          <h2>L'<em>objectif</em></h2>
+          <p>{projet.etude.objectif}</p>
+        </section>
+      ) : (
+        <section>
+          <h2>Le <em>projet</em></h2>
+          <p>{projet.description_longue}</p>
+        </section>
+      )}
 
       <aside className="projet-detail__aside">
         <h2>Les <em>technos</em></h2>
@@ -112,30 +124,9 @@ function ProjetDetail() {
         </>
       )}
 
-      {projet.galerie && <Carrousel titre={projet.galerie.titre} images={projet.galerie.images} />}
+      {projet.etude ? <EtudeCas etude={projet.etude}>{carrousel}</EtudeCas> : carrousel}
 
-      <FicheReflexive projet={projet} />
-
-      <nav className="projet-nav" aria-label="Autres projets">
-        <Link to={`/projets/${precedent.slug}`} className="projet-nav__lien">
-          <span className="projet-nav__sens"><ArrowLeft size={16} /> Projet précédent</span>
-          <span className="projet-nav__titre display">{precedent.titre}</span>
-        </Link>
-
-        <button
-          type="button"
-          className="projet-nav__haut"
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          aria-label="Remonter en haut de la page"
-        >
-          <ArrowUp size={22} />
-        </button>
-
-        <Link to={`/projets/${suivant.slug}`} className="projet-nav__lien projet-nav__lien--suivant">
-          <span className="projet-nav__sens">Projet suivant <ArrowRight size={16} /></span>
-          <span className="projet-nav__titre display">{suivant.titre}</span>
-        </Link>
-      </nav>
+      <NavProjets precedent={precedent} suivant={suivant} chemin="/projets" />
     </article>
   );
 }
